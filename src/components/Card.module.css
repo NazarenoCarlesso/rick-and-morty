@@ -1,0 +1,33 @@
+.divCard {
+    background-color: greenyellow;
+    width: 300px;
+    border-radius: 5%;
+}
+
+.divProps {
+    flex: inline-flex;
+}
+
+.buttonClose {
+    background-color: red;
+    color: rgb(182, 0, 0);
+    border-color: rgb(182, 0, 0);
+    border-radius: 5px;
+    float: right;
+}
+
+.divCard h2 {
+    margin: 0px;
+}
+
+.h2Name {
+    color: black;
+}
+
+.h2Species {
+    color: black;
+}
+
+.h2Gender {
+    color: black;
+}
