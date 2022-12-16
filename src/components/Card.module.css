@@ -1,33 +1,58 @@
-.divCard {
-    background-color: greenyellow;
-    width: 300px;
-    border-radius: 5%;
+.Card {
+    width: 250px;
+    height: 380px;
+    border-radius: 0.5rem;
+    margin: 1.75rem;
+    background: linear-gradient(0deg ,#11234c 70%, #1f60cc 100%);
+    border: 1px solid #1f60cc;
+    color: rgb(215, 215, 215);
+    text-align: center;
+    box-shadow: 2px 6px 10px 0px #00000099;
 }
 
-.divProps {
-    flex: inline-flex;
+.Character {
+    width: 230px;
+    height: 260px;
+    border-radius: 0.5rem;
+    padding: 0px;
+    margin: 10px;
+    background-color: rgb(180, 0, 0);
+    border: 1px solid rgb(200, 0, 0);
+    text-align: justify;
+    box-shadow: 2px 6px 10px 0px #00000099;
 }
 
-.buttonClose {
-    background-color: red;
-    color: rgb(182, 0, 0);
-    border-color: rgb(182, 0, 0);
-    border-radius: 5px;
-    float: right;
+.Character img {
+    width: 220px;
+    height: 220px;
+    border-radius: 0.5rem;
+    margin: 5px;
 }
 
-.divCard h2 {
-    margin: 0px;
+.Character h2 {
+    height: 30px;
+    margin: 0px 10px;
 }
 
-.h2Name {
-    color: black;
+.Logo {
+    width: 175px;
+    height: 53px;
 }
 
-.h2Species {
-    color: black;
+.Status {
+    display: -webkit-inline-flex;
 }
 
-.h2Gender {
-    color: black;
+.Status h3 {
+    margin: 5px;
+}
+
+.InteriorLight {
+    width: 120px;
+    box-shadow: 60px -40px 60px 20px #1f60cc;
+}
+
+.Close {
+    position: absolute;
+    margin: 0px 130px;
 }
