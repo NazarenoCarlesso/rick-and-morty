@@ -14,5 +14,5 @@ export default function Card(props) {
          </div>
          <div className={styles.InteriorLight}></div>
       </div>
-   );
+   )
 }
