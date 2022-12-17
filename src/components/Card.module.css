@@ -56,3 +56,8 @@
     position: absolute;
     margin: 0px 130px;
 }
+
+.Card a {
+    text-decoration: none;
+    color: rgb(215, 215, 215);
+}
