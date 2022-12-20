@@ -1,4 +1,6 @@
 import { useState } from 'react'
+// eslint-disable-next-line no-unused-vars
+import styles from './SearchBar.module.css'
 
 export default function SearchBar(props) {
    const { onSearch } = props

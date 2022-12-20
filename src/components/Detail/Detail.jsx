@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
+import styles from './Detail.module.css'
 
 export default function Detail() {
   const { id } = useParams()
