@@ -1,10 +1,12 @@
 .App {
-   min-height: 600px;
-   background-color: rgb(25, 25, 25);
-   color: rgb(215, 215, 215);
+   width: 100vw;
+   height: 100vh;
+   background-color: #0d1117;
+   color: #f0f6fc;
+   color-scheme: dark;
 }
 
-a {
+.App a {
    text-decoration: none;
-   color: rgb(215, 215, 215);
+   color: #f0f6fc;
 }

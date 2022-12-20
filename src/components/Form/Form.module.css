@@ -1,11 +1,106 @@
-.Error {
-    color: red;
+.divForm {
+    height: 100%;
+    width: 300px;
+    border-radius: 0.5rem;
+    background-color: #161b22;
+    border: 1px solid #22262d;
+    padding: 16px;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
-ul {
+.divForm label {
+    color: #f0f6fc;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.divForm input {
+    color: #f0f6fc;
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    padding: 5px 12px;
+    box-sizing: border-box;
+    background-color: #0d1117;
+    border-radius: 0.25rem;
+    border: 1px solid #22262d;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.divForm ul {
     margin: 0px;
+    margin-bottom: 16px;
+    padding-inline-start: 26px;
 }
 
-h5 {
-    margin: 5px;
+.divForm .error {
+    color: #da2828;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.divForm button {
+    padding: 5px 16px;
+    color: #f0f6fc;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #238636;
+    border: 1px solid #499146;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.hint {
+    height: 100%;
+    width: 300px;
+    border-radius: 0.5rem;
+    background-color: #161b22;
+    border: 1px solid #22262d;
+    padding: 16px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.hint h4 {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.header {
+    height: 100%;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    font-weight: 300;
+}
+
+.logo {
+    height: 100%;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin: 30px;
+    border-radius: 50%;
 }

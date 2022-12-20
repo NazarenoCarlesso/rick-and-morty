@@ -10,13 +10,12 @@ import Form from './components/Form/Form'
 export default function App () {
   const [characters, setCharacters] = useState([])
   const navigate = useNavigate();
-  const [access, setAccess] = useState(true);
+  const [access, setAccess] = useState(false);
   const username = 'user@user.com';
   const password = 'password0';
 
   const onLogin = (user) => {
     if (user.password === password && user.username === username) {
-      console.log('success')
       setAccess(true)
       navigate('/home')
       return true
@@ -42,10 +41,7 @@ export default function App () {
   }, [access]);
 
   useEffect(() => {
-    const c = [111,122,133,144,155,166,177,188,199
-              ,211,222,233,244,255,266,277,288,299
-              ,311,322,333,344,355,366,377,388,399]
-    c.forEach((c) => onSearch(c))
+    for (let i = 600; i <= 630; i++) { onSearch(i) }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

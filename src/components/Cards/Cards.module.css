@@ -4,6 +4,7 @@
     margin: 25px;
     width: 1080px;
     border-radius: 9rem;
+    place-content: center;
 }
 
 .PortalContainer {

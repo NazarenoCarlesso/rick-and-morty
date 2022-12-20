@@ -1,7 +1,6 @@
 .NavBar {
     display: flex;
-    background: rgb(40,40,40);
-    background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(20,20,20,1) 100%);
+    background: #171b22;
     border-bottom: 1px solid rgb(10, 10, 10);
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
 }
