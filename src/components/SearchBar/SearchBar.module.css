@@ -1,0 +1,9 @@
+.Bar {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+}
+
+.Boton {
+    margin-left: 5px;
+}

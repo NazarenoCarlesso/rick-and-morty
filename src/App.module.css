@@ -1,5 +1,10 @@
 .App {
-   background-color: rgb(35, 35, 35);
-   padding: 10px;
+   min-height: 600px;
+   background-color: rgb(25, 25, 25);
+   color: rgb(215, 215, 215);
+}
+
+a {
+   text-decoration: none;
    color: rgb(215, 215, 215);
 }

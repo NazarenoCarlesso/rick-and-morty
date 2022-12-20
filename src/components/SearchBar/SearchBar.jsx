@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// eslint-disable-next-line no-unused-vars
 import styles from './SearchBar.module.css'
 
 export default function SearchBar(props) {
@@ -12,13 +11,13 @@ export default function SearchBar(props) {
    }
 
    return (
-      <div>
-         <input value={character} onChange={handleInputChange}/>
-         <button onClick={() => {
+      <div className={styles.Bar}>
+         <input className={styles.Input} value={character} onChange={handleInputChange}/>
+         <button className={styles.Boton} onClick={() => {
             onSearch(character)
             setCharacter('')
          }}>Agregar</button>
-         <button onClick={() => {
+         <button className={styles.Boton} onClick={() => {
             onSearch(Math.floor(Math.random() * maxChar))
          }}>Random</button>
       </div>

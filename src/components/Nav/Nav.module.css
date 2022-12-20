@@ -1,0 +1,33 @@
+.NavBar {
+    display: flex;
+    background: rgb(40,40,40);
+    background: linear-gradient(180deg, rgba(40,40,40,1) 0%, rgba(20,20,20,1) 100%);
+    border-bottom: 1px solid rgb(10, 10, 10);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
+}
+
+.NavBar :hover {
+    background: radial-gradient(circle, rgba(50, 50, 50, 0.2) 20%, rgba(0, 0, 0, 0) 80%);
+}
+
+.NavElement {
+    height: 100%;
+    display: flex;
+    border-right: 1px solid rgb(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: whitesmoke;
+    align-items: center;
+    margin: 0px;
+}
+
+.NavElement img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.NavElement h4 {
+    margin: 15px 5px;
+}

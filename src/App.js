@@ -41,7 +41,15 @@ export default function App () {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
- const nav = access ? <><Nav search={onSearch}/><hr/></> : <></>;
+  useEffect(() => {
+    const c = [111,122,133,144,155,166,177,188,199
+              ,211,222,233,244,255,266,277,288,299
+              ,311,322,333,344,355,366,377,388,399]
+    c.forEach((c) => onSearch(c))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+ const nav = access ? <Nav search={onSearch}/> : <></>;
 
   return (
     <div className={styles.App}>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-// eslint-disable-next-line no-unused-vars
 import styles from './Detail.module.css'
 
 export default function Detail() {
@@ -8,17 +7,25 @@ export default function Detail() {
   const [character, setCharacter] = useState([])
   useEffect(() => {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        .then((response) => response.json())
-        .then((char) => {
-          char.id
+      .then((response) => response.json())
+      .then((char) => {
+        char.id
           ? setCharacter(char)
           : window.alert('No hay personajes con ese ID')
-        })
+      })
   }, [id])
+
   return (
-    <div>
-        <h1>Detail: {id}</h1>
-        <h3>{JSON.stringify(character)} </h3>
+    <div className={styles.Div}>
+      <div className={styles.Data}>
+        <h1>Name: {character.name}</h1>
+        <h1>Status: {character.status}</h1>
+        <h4>Location: {character.location ? character.location.name : '-'}</h4>
+        <h1>Specie: {character.species}</h1>
+        <h4>Type: {character.type}</h4>
+        <h4>Origin: {character.origin ? character.origin.name : '-'}</h4>
+        <h4>Gender: {character.gender}</h4>
+      </div>
     </div>
   )
 }
