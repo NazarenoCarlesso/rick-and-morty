@@ -48,7 +48,7 @@ export default function App () {
  const nav = access ? <Nav search={onSearch}/> : <></>;
 
   return (
-    <div className={styles.App}>
+    <div className={styles.app}>
       {nav}
       <Routes>
         <Route path='/' element={<Form onLogin={onLogin}/>}/>

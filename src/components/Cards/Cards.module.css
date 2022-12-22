@@ -1,21 +1,31 @@
-.Div {
+.divCards {
     display: flex;
-    overflow-x: scroll;
-    margin: 25px;
-    width: 1080px;
+    margin: 30px 3vw;
+    width: 94vw;
     border-radius: 9rem;
-    place-content: center;
 }
 
-.PortalContainer {
+.portalContainerLeft {
     position: absolute;
     height: 400px;
+    margin-top: 50px;
+    left: 0px;
+    top: 40px;
     display: grid;
-    top: 100px;
     z-index: 5;
 }
 
-.Portal {
+.portalContainerRight {
+    position: absolute;
+    height: 400px;
+    margin-top: 50px;
+    right: 0px;
+    top: 40px;
+    display: grid;
+    z-index: 5;
+}
+
+.portal {
     background-color: #66BA4F;
     box-shadow: 0px 0px 40px 10px #448C3F;
     height: 24em;

@@ -1,9 +1,32 @@
-.Bar {
+.searchBar {
+    align-items: center;
     display: flex;
     padding: 5px;
-    align-items: center;
 }
 
-.Boton {
+.searchBar input {
+    background-color: #cdcdcd;
+    border-radius: 0.25rem;
+    border: 1px solid #bfbfbf;
+    box-sizing: border-box;
+    color: #101010;
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 5px 12px;
+    width: 100%;
+}
+
+.searchBar button {
+    background-color: #61c95d;
+    border-radius: 0.25rem;
+    border: 1px solid #55be51;
+    color: #101010;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 5px 16px;
+    text-align: center;
     margin-left: 5px;
 }

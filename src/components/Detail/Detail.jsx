@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import styles from './Detail.module.css'
 
 export default function Detail() {
@@ -16,15 +16,32 @@ export default function Detail() {
   }, [id])
 
   return (
-    <div className={styles.Div}>
-      <div className={styles.Data}>
-        <h1>Name: {character.name}</h1>
-        <h1>Status: {character.status}</h1>
-        <h4>Location: {character.location ? character.location.name : '-'}</h4>
-        <h1>Specie: {character.species}</h1>
-        <h4>Type: {character.type}</h4>
-        <h4>Origin: {character.origin ? character.origin.name : '-'}</h4>
-        <h4>Gender: {character.gender}</h4>
+    <div className={styles.divContainer}>
+      <div className={styles.divAttributes}>
+        <h1 className={styles.name}>{character.name}</h1>
+        <div className={styles.attribute}>
+          <h2>Gender: {character.gender}</h2>
+        </div>
+        <div className={styles.attribute}>
+          <h2>Specie: {character.species}</h2>
+        </div>
+        <div className={styles.attribute}>
+          <h2>Status: {character.status}</h2>
+        </div>
+        <div className={styles.extras}>
+          <h3>Location: {character.location ? character.location.name : '-'}</h3>
+          <h3>Type: {character.type}</h3>
+          <h3>Origin: {character.origin ? character.origin.name : '-'}</h3>
+        </div>
+      </div>
+      <div className={styles.character}>
+        <Link to={`/detail/${Number(id) - 1}`}>
+          <button>{`<`}</button>
+        </Link>
+        <img src={character.image} alt='Character' />
+        <Link to={`/detail/${Number(id) + 1}`}>
+          <button>{`>`}</button>
+        </Link>
       </div>
     </div>
   )

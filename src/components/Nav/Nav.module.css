@@ -1,32 +1,35 @@
-.NavBar {
+.navBar {
+    background: #e1e1e1;
+    border-bottom: 1px solid #bfbfbf;
+    box-shadow: 0px -2px 16px 0px #00000030;
     display: flex;
-    background: #171b22;
-    border-bottom: 1px solid rgb(10, 10, 10);
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
 }
 
-.NavBar :hover {
-    background: radial-gradient(circle, rgba(50, 50, 50, 0.2) 20%, rgba(0, 0, 0, 0) 80%);
-}
-
-.NavElement {
-    height: 100%;
-    display: flex;
-    border-right: 1px solid rgb(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: whitesmoke;
+.navElement {
     align-items: center;
+    color: #101010;
+    display: flex;
+    height: 100%;
     margin: 0px;
+    text-decoration: none;
 }
 
-.NavElement img {
-    height: 50px;
-    width: 50px;
+.navElement img {
     border-radius: 50%;
+    height: 50px;
     margin: 5px;
+    width: 50px;
 }
 
-.NavElement h4 {
+.navElement svg {
+    margin: 5px;
+    fill: #101010;
+}
+
+.navElement h4 {
     margin: 15px 5px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
 }

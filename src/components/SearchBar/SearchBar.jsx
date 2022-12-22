@@ -11,13 +11,13 @@ export default function SearchBar(props) {
    }
 
    return (
-      <div className={styles.Bar}>
-         <input className={styles.Input} value={character} onChange={handleInputChange}/>
-         <button className={styles.Boton} onClick={() => {
+      <div className={styles.searchBar}>
+         <input value={character} onChange={handleInputChange} />
+         <button onClick={() => {
             onSearch(character)
             setCharacter('')
          }}>Agregar</button>
-         <button className={styles.Boton} onClick={() => {
+         <button onClick={() => {
             onSearch(Math.floor(Math.random() * maxChar))
          }}>Random</button>
       </div>

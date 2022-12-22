@@ -1,12 +1,12 @@
-.App {
-   width: 100vw;
+.app {
+   background-color: #cdcdcd;
+   color-scheme: light;
+   color: #101010;
    height: 100vh;
-   background-color: #0d1117;
-   color: #f0f6fc;
-   color-scheme: dark;
+   width: 100vw;
 }
 
-.App a {
+.app a {
+   color: #101010;
    text-decoration: none;
-   color: #f0f6fc;
 }
