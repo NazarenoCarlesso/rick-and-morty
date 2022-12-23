@@ -14,23 +14,26 @@ export default function Detail() {
           : window.alert('No hay personajes con ese ID')
       })
   }, [id])
+  const speciesId = character.species ? character.species.split(' ')[0] : character.species
 
   return (
     <div className={styles.divContainer}>
       <div className={styles.divAttributes}>
         <h1 className={styles.name}>{character.name}</h1>
-        <div className={styles.attribute}>
+        <div className={`${styles.attribute} ${styles[character.gender]}`}>
           <h2>Gender: {character.gender}</h2>
         </div>
-        <div className={styles.attribute}>
+        <div className={`${styles.attribute} ${styles[speciesId]}`}>
           <h2>Specie: {character.species}</h2>
         </div>
-        <div className={styles.attribute}>
+        <div className={`${styles.attribute} ${styles[character.status]}`}>
           <h2>Status: {character.status}</h2>
         </div>
         <div className={styles.extras}>
-          <h3>Location: {character.location ? character.location.name : '-'}</h3>
           <h3>Type: {character.type}</h3>
+          <hr />
+          <h3>Last known Location: {character.location ? character.location.name : '-'}</h3>
+          <hr />
           <h3>Origin: {character.origin ? character.origin.name : '-'}</h3>
         </div>
       </div>
@@ -38,7 +41,9 @@ export default function Detail() {
         <Link to={`/detail/${Number(id) - 1}`}>
           <button>{`<`}</button>
         </Link>
-        <img src={character.image} alt='Character' />
+        <div className={styles.border}>
+          <img src={character.image} alt='Character' />
+        </div>
         <Link to={`/detail/${Number(id) + 1}`}>
           <button>{`>`}</button>
         </Link>

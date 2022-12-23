@@ -45,9 +45,9 @@
 }
 
 .divForm button {
-    background-color: #61c95d;
+    background-color: #3a7eec;
     border-radius: 0.25rem;
-    border: 1px solid #55be51;
+    border: 1px solid #00000040;
     color: #101010;
     display: block;
     font-size: 14px;
@@ -78,9 +78,9 @@
 }
 
 .hint button {
-    background-color: #61c95d;
+    background-color: #3a7eec;
     border-radius: 0.25rem;
-    border: 1px solid #55be51;
+    border: 1px solid #00000040;
     color: #101010;
     font-size: 16px;
     margin: 0px;

@@ -10,3 +10,8 @@
    color: #101010;
    text-decoration: none;
 }
+
+.background {
+   background-image: url('../public/img/Background_Garage.png');
+   background-size: cover;
+}
