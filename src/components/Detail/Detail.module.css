@@ -5,6 +5,7 @@
 }
 
 .name {
+    width: 320px;
     color: #101010;
     font-size: 28px;
     font-weight: 600;

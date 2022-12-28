@@ -8,7 +8,7 @@ export default function Card(props) {
          <div className={styles.card}>
             <div className={styles.character}>
                <Link to={`/detail/${props.id}`}>
-                  <h2>{props.name}</h2>
+                  <h2 title={props.name}>{props.name}</h2>
                   <img src={props.image} alt='Character' />
                </Link>
             </div>

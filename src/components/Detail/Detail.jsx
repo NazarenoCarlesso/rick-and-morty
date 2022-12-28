@@ -16,6 +16,10 @@ export default function Detail() {
   }, [id])
   const speciesId = character.species ? character.species.split(' ')[0] : character.species
 
+  const maxChar = 826;
+  const prevChar = (id) => id === 1 ? maxChar : id - 1
+  const nextChar = (id) => id === maxChar ? 1 : id + 1
+
   return (
     <div className={styles.divContainer}>
       <div className={styles.divAttributes}>
@@ -37,16 +41,18 @@ export default function Detail() {
           <h3>Origin: {character.origin ? character.origin.name : '-'}</h3>
         </div>
       </div>
-      <div className={styles.character}>
-        <Link to={`/detail/${Number(id) - 1}`}>
-          <button>{`<`}</button>
-        </Link>
-        <div className={styles.border}>
-          <img src={character.image} alt='Character' />
+      <div>
+        <div className={styles.character}>
+          <Link to={`/detail/${prevChar(Number(id))}`}>
+            <button>{`<`}</button>
+          </Link>
+          <div className={styles.border}>
+            <img src={character.image} alt='Character' />
+          </div>
+          <Link to={`/detail/${nextChar(Number(id))}`}>
+            <button>{`>`}</button>
+          </Link>
         </div>
-        <Link to={`/detail/${Number(id) + 1}`}>
-          <button>{`>`}</button>
-        </Link>
       </div>
     </div>
   )

@@ -6,6 +6,7 @@ import Nav from './components/Nav/Nav'
 import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form'
+import Error from './components/Error/Error'
 
 export default function App() {
   const [characters, setCharacters] = useState([])
@@ -55,6 +56,7 @@ export default function App() {
         <Route path='/home' element={<Cards characters={characters} close={onClose} />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail />} />
+        <Route path='/*' element={<Error />} />
       </Routes>
     </div>
   )

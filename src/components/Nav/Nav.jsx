@@ -15,6 +15,16 @@ export default function Nav(props) {
                 </div>
             </NavLink>
             <SearchBar onSearch={search} />
+            <NavLink to='/home'>
+                <div className={styles.navElement}>
+                    <h4>Home</h4>
+                </div>
+            </NavLink>
+            <NavLink to='/error'>
+                <div className={styles.navElement}>
+                    <h4>Error</h4>
+                </div>
+            </NavLink>
             <NavLink to='/about'>
                 <div className={styles.navElement}>
                     <h4>About us</h4>
