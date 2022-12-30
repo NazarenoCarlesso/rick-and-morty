@@ -1,10 +1,39 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './Card.module.css';
+import { connect } from 'react-redux'
+import styles from './Card.module.css'
+import { addFav, deleteFav } from '../../redux/actions'
 
-export default function Card(props) {
+function Card(props) {
+   const { addFav, deleteFav, myFavorites } = props
+
+   const [isFav, setIsFav] = useState(false)
+
+   const handleFavorite = () => {
+      if (isFav) {
+         setIsFav(false)
+         deleteFav(props.id)
+      } else {
+         setIsFav(true)
+         addFav(props)
+      }
+   }
+
+   useEffect(() => {
+      myFavorites.forEach(fav => {
+         if (fav.id === props.id) setIsFav(true)
+      })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [myFavorites])
+
    return (
       <div className={styles.divContainer}>
-         <button onClick={props.onClose}>X</button>
+         {
+            isFav
+               ? (<button onClick={handleFavorite}>❤️</button>)
+               : (<button onClick={handleFavorite}>🤍</button>)
+         }
+         <button className={styles.close} onClick={props.onClose}>❌</button>
          <div className={styles.card}>
             <div className={styles.character}>
                <Link to={`/detail/${props.id}`}>
@@ -18,3 +47,18 @@ export default function Card(props) {
       </div>
    )
 }
+
+const mapStateToProps = (state) => {
+   return {
+      myFavorites: state.myFavorites
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      addFav: (char) => dispatch(addFav(char)),
+      deleteFav: (id) => dispatch(deleteFav(id))
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card)

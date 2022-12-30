@@ -20,6 +20,11 @@ export default function Nav(props) {
                     <h4>Home</h4>
                 </div>
             </NavLink>
+            <NavLink to='/favorites'>
+                <div className={styles.navElement}>
+                    <h4>Favorites</h4>
+                </div>
+            </NavLink>
             <NavLink to='/error'>
                 <div className={styles.navElement}>
                     <h4>Error</h4>
