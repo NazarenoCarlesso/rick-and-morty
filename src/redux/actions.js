@@ -1,4 +1,4 @@
-import { ADD_FAV, DELETE_FAV } from './reducer'
+import { ADD_FAV, DELETE_FAV, FILTER, ORDER } from './reducer'
 
 const addFav = (character) => {
     return {
@@ -14,4 +14,18 @@ const deleteFav = (id) => {
     }
 }
 
-export { addFav, deleteFav }
+const filterCards = (genre) => {
+    return {
+        type: FILTER,
+        payload: genre
+    }
+}
+
+const orderCards = (id) => {
+    return {
+        type: ORDER,
+        payload: id
+    }
+}
+
+export { addFav, deleteFav, filterCards, orderCards }

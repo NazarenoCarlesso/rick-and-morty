@@ -12,7 +12,7 @@ import Favorites from './components/Favorites/Favorites'
 export default function App() {
   const [characters, setCharacters] = useState([])
   const navigate = useNavigate();
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
   const username = 'user@user.com';
   const password = 'password0';
 
@@ -43,7 +43,7 @@ export default function App() {
   }, [access]);
 
   useEffect(() => {
-    for (let i = 1; i <= 1; i++) { onSearch(i) }
+    for (let i = 600; i <= 630; i++) { onSearch(i) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
