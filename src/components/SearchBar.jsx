@@ -1,4 +1,4 @@
-import { alpha, Box, InputBase, styled, Typography } from '@mui/material'
+import { alpha, InputBase, Paper, styled, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import React from 'react'
 
@@ -46,17 +46,13 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 export default function SearchBar() {
   return (
-    <Box>
-      <Typography>Find your favorite Rick and Morty characters</Typography>
-      <Search>
-        <SearchIconWrapper>
-          <SearchIcon />
-        </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search…"
-          inputProps={{ 'aria-label': 'search' }}
-        />
+    <Paper sx={{ width: "280px", margin: "20px", padding: "20px", color: "#00a507", backgroundColor: "transparent", border: "solid 2px", borderRadius: "1rem" }}>
+      <Typography variant="h3" sx={{ fontFamily: "Montserrat", fontWeight: "bold", wordSpacing: "5px" }}>Rick & Morty API</Typography>
+      <Typography variant="h6" sx={{ margin: "15px 0px", paddingLeft: "10px", borderLeft: "solid 4px", fontFamily: "Montserrat", fontSize: "1rem", fontWeight: "bold" }}>Find your favorite rick and morty characters</Typography>
+      <Search sx={{ borderRadius: "1.5rem", backgroundColor: "transparent", border: "solid 2px" }}>
+        <SearchIconWrapper><SearchIcon /></SearchIconWrapper>
+        <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} sx={{ width: "100%" }} />
       </Search>
-    </Box>
+    </Paper>
   )
 }

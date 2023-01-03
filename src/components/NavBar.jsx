@@ -4,7 +4,7 @@ import React from 'react'
 export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar sx={{ backgroundColor: "#041404" }}>
           <Grid container direction="row" justifyContent="space-between" alignItems="center">
             <Typography item xs variant="h6" color="inherit" component="div" sx={{ fontFamily: "Montserrat", color: "#00a507" }}>

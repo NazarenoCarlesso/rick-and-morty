@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import styles from './App.module.css'
 import Cards from './components/Cards/Cards'
 import Nav from './components/Nav/Nav'
 import About from './components/About/About'
@@ -12,7 +11,6 @@ import Favorites from './components/Favorites/Favorites'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Seasons from './components/Seasons'
-import Search from './components/Search'
 
 export default function App() {
   const [characters, setCharacters] = useState([])
@@ -53,8 +51,6 @@ export default function App() {
     <>
       <NavBar />
       <Home />
-      <Search />
-      <Seasons />
     </>
   )
 }
