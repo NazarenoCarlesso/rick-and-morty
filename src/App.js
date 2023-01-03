@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import styles from './App.module.css'
@@ -8,6 +9,10 @@ import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form'
 import Error from './components/Error/Error'
 import Favorites from './components/Favorites/Favorites'
+import NavBar from './components/NavBar'
+import Home from './components/Home'
+import Seasons from './components/Seasons'
+import Search from './components/Search'
 
 export default function App() {
   const [characters, setCharacters] = useState([])
@@ -42,16 +47,21 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
-  useEffect(() => {
-    for (let i = 600; i <= 630; i++) { onSearch(i) }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   const nav = access ? <Nav search={onSearch} /> : <></>;
 
   return (
-    <div className={`${styles.app} ${styles.background}`}>
+    <>
+      <NavBar />
+      <Home />
+      <Search />
+      <Seasons />
+    </>
+  )
+}
+/*
+<div className={`${styles.app} ${styles.background}`}>
       {nav}
+      <NavBar/>
       <Routes>
         <Route path='/' element={<Form onLogin={onLogin} />} />
         <Route path='/home' element={<Cards characters={characters} close={onClose} />} />
@@ -61,5 +71,4 @@ export default function App() {
         <Route path='/*' element={<Error />} />
       </Routes>
     </div>
-  )
-}
+*/
