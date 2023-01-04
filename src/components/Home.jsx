@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import React from 'react'
 import Characters from './Characters'
 import { MontserratWhiteHome } from './Custom'
@@ -7,12 +7,12 @@ import Return from './Return'
 import Search from './Search'
 import Seasons from './Seasons'
 
-export default function Home() {
+export default function Home({ onSearch }) {
     return (
-        <Grid container direction="column" alignItems="center" >
-            <Box component="img" src="img/Hero.png" sx={{ backgroundColor: "#041404", width: "100vw", maxWidth: "100%" }} />
+        <Grid container direction="column" alignItems="center" sx={{ maxWidth: "100%" }} >
+            <Grid sx={{ minHeight: "250px" }} />
             <Grid container direction="row" justifyContent="space-evenly" alignItems="center" sx={{ width: "90vw" }} >
-                <Search />
+                <Search onSearch={onSearch} />
                 <Return />
                 <Design />
             </Grid>

@@ -1,5 +1,6 @@
 import { Button, Grid } from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Montserrat, MontserratBold, PaperTriple } from './Custom'
 
 export default function Return() {
@@ -12,16 +13,20 @@ export default function Return() {
                 Bring an existing deck from your account or create a new one
             </Montserrat>
             <Grid container direction="row" justifyContent="space-evenly" alignItems="center" sx={{ width: "100%", height: "45px" }}>
-                <Button color="secondary" sx={{ width: "120px", borderRadius: "1.5rem", border: "2px solid lawngreen" }}>
-                    <Montserrat>
-                        Sign In
-                    </Montserrat>
-                </Button>
-                <Button color="secondary" sx={{ width: "120px", borderRadius: "1.5rem", border: "2px solid lawngreen" }}>
-                    <Montserrat>
-                        New Deck
-                    </Montserrat>
-                </Button>
+                <Link to="/">
+                    <Button color="secondary" sx={{ width: "120px", borderRadius: "1.5rem", border: "2px solid lawngreen" }}>
+                        <Montserrat>
+                            Sign In
+                        </Montserrat>
+                    </Button>
+                </Link>
+                <Link to="/deck">
+                    <Button color="secondary" sx={{ width: "120px", borderRadius: "1.5rem", border: "2px solid lawngreen" }}>
+                        <Montserrat>
+                            New Deck
+                        </Montserrat>
+                    </Button>
+                </Link>
             </Grid>
         </PaperTriple>
     )

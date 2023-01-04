@@ -5,7 +5,7 @@ import { MontserratNav } from './Custom'
 
 export default function NavBar() {
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, maxWidth: "100%" }}>
             <AppBar position="fixed">
                 <Toolbar sx={{ backgroundColor: "#041404" }}>
                     <Grid container direction="row" justifyContent="space-evenly" alignItems="center">
@@ -33,6 +33,7 @@ export default function NavBar() {
                     </Grid>
                 </Toolbar>
             </AppBar>
+            <Box component="img" src="img/Hero.png" sx={{ backgroundColor: "#041404", width: "100vw", maxWidth: "100%", position: "absolute", zIndex: -1 }} />
         </Box>
     )
 }
