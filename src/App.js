@@ -11,48 +11,66 @@ import Favorites from './components/Favorites/Favorites'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Seasons from './components/Seasons'
+import { createTheme, ThemeProvider } from '@mui/material'
 
 export default function App() {
-  const [characters, setCharacters] = useState([])
-  const navigate = useNavigate();
-  const [access, setAccess] = useState(true);
-  const username = 'user@user.com';
-  const password = 'password0';
+    const [characters, setCharacters] = useState([])
+    const navigate = useNavigate();
+    const [access, setAccess] = useState(true);
+    const username = 'user@user.com';
+    const password = 'password0';
 
-  const onLogin = (user) => {
-    if (user.password === password && user.username === username) {
-      setAccess(true)
-      navigate('/home')
-      return true
+    const onLogin = (user) => {
+        if (user.password === password && user.username === username) {
+            setAccess(true)
+            navigate('/home')
+            return true
+        }
+        return false
     }
-    return false
-  }
 
-  const onSearch = async (character) => {
-    const data = await fetch(`https://rickandmortyapi.com/api/character/${character}`)
-      .then((response) => response.json())
-    if (!data.id) return window.alert('No hay personajes con ese ID')
-    if (characters.some(c => c.id === data.id)) return window.alert('Ya tienes a ese personaje')
-    setCharacters((oldChars) => [...oldChars, data])
-  }
+    const onSearch = async (character) => {
+        const data = await fetch(`https://rickandmortyapi.com/api/character/${character}`)
+            .then((response) => response.json())
+        if (!data.id) return window.alert('No hay personajes con ese ID')
+        if (characters.some(c => c.id === data.id)) return window.alert('Ya tienes a ese personaje')
+        setCharacters((oldChars) => [...oldChars, data])
+    }
 
-  const onClose = (character) => {
-    setCharacters((oldChars) => oldChars.filter(c => c.id !== character))
-  }
+    const onClose = (character) => {
+        setCharacters((oldChars) => oldChars.filter(c => c.id !== character))
+    }
 
-  useEffect(() => {
-    !access && navigate('/');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [access]);
+    useEffect(() => {
+        !access && navigate('/');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [access]);
 
-  const nav = access ? <Nav search={onSearch} /> : <></>;
+    const nav = access ? <Nav search={onSearch} /> : <></>;
 
-  return (
-    <>
-      <NavBar />
-      <Home />
-    </>
-  )
+    const theme = createTheme({
+        palette: {
+            mode: 'dark',
+            primary: {
+                main: "#00a507",
+            },
+            secondary: {
+                main: "#00a507",
+            },
+            text: {
+                primary: '#00d809',
+            },
+        },
+    })
+
+    return (
+        <>
+            <ThemeProvider theme={theme} sx={{ maxWidth: "100%" }} >
+                <NavBar sx={{ maxWidth: "100%" }} />
+                <Home sx={{ maxWidth: "100%" }} />
+            </ThemeProvider>
+        </>
+    )
 }
 /*
 <div className={`${styles.app} ${styles.background}`}>

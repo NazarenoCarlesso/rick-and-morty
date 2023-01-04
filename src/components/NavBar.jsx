@@ -1,28 +1,38 @@
-import { AppBar, Box, Grid, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Grid, Toolbar } from '@mui/material'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { MontserratNav } from './Custom'
 
 export default function NavBar() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
-        <Toolbar sx={{ backgroundColor: "#041404" }}>
-          <Grid container direction="row" justifyContent="space-between" alignItems="center">
-            <Typography item xs variant="h6" color="inherit" component="div" sx={{ fontFamily: "Montserrat", color: "#00a507" }}>
-              Home
-            </Typography>
-            <Typography item xs variant="h6" color="inherit" component="div" sx={{ fontFamily: "Montserrat", color: "#00a507" }}>
-              Favorites
-            </Typography>
-            <Box item xs component="img" src="img/Rick_and_Morty.png" sx={{ width: "150px", mixBlendMode: "color-dodge" }} />
-            <Typography item xs variant="h6" color="inherit" component="div" sx={{ fontFamily: "Montserrat", color: "#00a507" }}>
-              Deck
-            </Typography>
-            <Typography item xs variant="h6" color="inherit" component="div" sx={{ fontFamily: "Montserrat", color: "#00a507" }}>
-              Episodes
-            </Typography>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  )
+    return (
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="fixed">
+                <Toolbar sx={{ backgroundColor: "#041404" }}>
+                    <Grid container direction="row" justifyContent="space-evenly" alignItems="center">
+                        <NavLink to='/home'>
+                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                                Home
+                            </MontserratNav>
+                        </NavLink>
+                        <NavLink to='/favorites'>
+                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                                Favorites
+                            </MontserratNav>
+                        </NavLink>
+                        <Box item xs component="img" src="img/nav_logo.png" sx={{ width: "150px", mixBlendMode: "hard-light", opacity: 0.7 }} />
+                        <NavLink to='/deck'>
+                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                                Deck
+                            </MontserratNav>
+                        </NavLink>
+                        <NavLink to='/episodes'>
+                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                                Episodes
+                            </MontserratNav>
+                        </NavLink>
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+        </Box>
+    )
 }

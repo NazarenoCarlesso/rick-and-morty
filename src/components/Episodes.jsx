@@ -24,7 +24,7 @@ export default function Episodes() {
                     </svg>
                 </Button>
             </Box>
-            <Grid id="home" container direction="row" sx={{ width: "86vw", padding: "0px 2vw", height: "290px", overflow: "hidden", flexWrap: "nowrap" }}>
+            <Grid id="home" container direction="row" sx={{ width: "84vw", height: "290px", overflow: "hidden", flexWrap: "nowrap" }}>
                 {episodes.map((episode) => <Episode season={6} episode={episode} />)}
             </Grid>
             <Box sx={{ margin: "10px", width: "5vw" }}>
