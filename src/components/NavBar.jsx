@@ -10,23 +10,23 @@ export default function NavBar() {
                 <Toolbar sx={{ backgroundColor: "#041404" }}>
                     <Grid container direction="row" justifyContent="space-evenly" alignItems="center">
                         <NavLink to='/home'>
-                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                            <MontserratNav variant="h6" color="inherit" component="div">
                                 Home
                             </MontserratNav>
                         </NavLink>
                         <NavLink to='/favorites'>
-                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                            <MontserratNav variant="h6" color="inherit" component="div">
                                 Favorites
                             </MontserratNav>
                         </NavLink>
-                        <Box item xs component="img" src="img/nav_logo.png" sx={{ width: "150px", mixBlendMode: "hard-light", opacity: 0.7 }} />
+                        <Box component="img" src="img/nav_logo.png" sx={{ width: "150px", mixBlendMode: "hard-light", opacity: 0.7 }} />
                         <NavLink to='/deck'>
-                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                            <MontserratNav variant="h6" color="inherit" component="div">
                                 Deck
                             </MontserratNav>
                         </NavLink>
                         <NavLink to='/episodes'>
-                            <MontserratNav item xs variant="h6" color="inherit" component="div">
+                            <MontserratNav variant="h6" color="inherit" component="div">
                                 Episodes
                             </MontserratNav>
                         </NavLink>

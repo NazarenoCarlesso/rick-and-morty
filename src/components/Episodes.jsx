@@ -25,7 +25,7 @@ export default function Episodes() {
                 </Button>
             </Box>
             <Grid id="home" container direction="row" sx={{ width: "84vw", height: "290px", overflow: "hidden", flexWrap: "nowrap" }}>
-                {episodes.map((episode) => <Episode season={6} episode={episode} />)}
+                {episodes.map((episode, index) => <Episode key={index} season={6} episode={episode} />)}
             </Grid>
             <Box sx={{ margin: "10px", width: "5vw" }}>
                 <Button onClick={scrollRight} sx={{ borderRadius: "2.5rem" }}>

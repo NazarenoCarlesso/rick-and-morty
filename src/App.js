@@ -5,17 +5,22 @@ import Cards from './components/Cards/Cards'
 import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Error from './components/Error/Error'
-import Favorites from './components/Favorites/Favorites'
+import Favorites from './components/Favorites'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import SignIn from './components/SignIn'
 
 export default function App() {
     const [characters, setCharacters] = useState([])
-    const navigate = useNavigate()
     const [access, setAccess] = useState(true)
+    const navigate = useNavigate()
     const username = 'user@user.com'
     const password = 'password0'
+
+    useEffect(() => {
+        for (let i = 600; i <= 630; i++) { onSearch(i) }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const onLogin = (user) => {
         if (user.password === password && user.username === username) {
@@ -68,7 +73,7 @@ export default function App() {
     })
 
     return (
-        <ThemeProvider theme={theme} sx={{ maxWidth: "100%" }} >
+        <ThemeProvider theme={theme} >
             {nav}
             <Routes>
                 <Route path='/' element={<SignIn onLogin={onLogin} />} />

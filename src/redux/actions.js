@@ -1,31 +1,35 @@
-import { ADD_FAV, DELETE_FAV, FILTER, ORDER } from './reducer'
+import { ADD_FAV, DELETE_FAV, FILTER_GENDER, FILTER_RESET, FILTER_SPECIE, FILTER_STATUS, ORDER } from './reducer'
 
-const addFav = (character) => {
-    return {
-        type: ADD_FAV,
-        payload: character
-    }
-}
+export const addFav = character => ({
+    type: ADD_FAV,
+    payload: character
+})
 
-const deleteFav = (id) => {
-    return {
-        type: DELETE_FAV,
-        payload: id
-    }
-}
+export const deleteFav = id => ({
+    type: DELETE_FAV,
+    payload: id
+})
 
-const filterCards = (genre) => {
-    return {
-        type: FILTER,
-        payload: genre
-    }
-}
+export const filterReset = () => ({
+    type: FILTER_RESET
+})
 
-const orderCards = (id) => {
-    return {
-        type: ORDER,
-        payload: id
-    }
-}
+export const filterGender = gender => ({
+    type: FILTER_GENDER,
+    payload: gender
+})
 
-export { addFav, deleteFav, filterCards, orderCards }
+export const filterSpecie = specie => ({
+    type: FILTER_SPECIE,
+    payload: specie
+})
+
+export const filterStatus = status => ({
+    type: FILTER_STATUS,
+    payload: status
+})
+
+export const orderCards = id => ({
+    type: ORDER,
+    payload: id
+})
