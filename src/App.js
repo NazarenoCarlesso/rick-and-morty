@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { createTheme, ThemeProvider } from '@mui/material'
 import Cards from './components/Cards/Cards'
-import About from './components/About/About'
+import About from './components/About'
 import Detail from './components/Detail/Detail'
-import Error from './components/Error/Error'
 import Favorites from './components/Favorites'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import SignIn from './components/SignIn'
+import Error from './components/Error'
 
 export default function App() {
     const [characters, setCharacters] = useState([])

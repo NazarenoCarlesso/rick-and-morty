@@ -52,19 +52,6 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
     justifyContent: 'center',
 }))
 
-export const PaperTriple = styled(Paper)((theme) => ({
-    width: "280px",
-    height: "240px",
-    margin: "20px",
-    padding: "20px",
-    color: "#40db00",
-    backgroundColor: "transparent",
-    border: "solid 2px",
-    borderRadius: "0rem",
-    boxShadow: "inset 0px 0px 12px 2px #91ff003b, 0px 0px 12px 2px #91ff003b",
-    backgroundImage: "none",
-}))
-
 export const Montserrat = styled(Typography)((theme) => ({
     fontFamily: "Montserrat",
 }))
@@ -109,4 +96,22 @@ export const ButtonNav = styled(Button)((theme) => ({
     '&:hover': {
         background: "none",
     }
+}))
+
+export const NeonPaper = styled(Paper)((theme) => ({
+    width: "600px",
+    color: "#40db00",
+    backgroundColor: "#001405c2",
+    backgroundImage: "none",
+    border: "solid 2px",
+    boxShadow: "inset 0px 0px 12px 2px #91ff003b, 0px 0px 12px 2px #91ff003b",
+    padding: "20px",
+    margin: "20px",
+    borderRadius: "0rem"
+}))
+
+export const PaperTriple = styled(NeonPaper)((theme) => ({
+    width: "280px",
+    height: "240px",
+    backgroundColor: "transparent",
 }))
