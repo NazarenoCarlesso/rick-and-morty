@@ -42,7 +42,7 @@ export default function SignIn({ onLogin }) {
                         <TextField value={user.username} name="username" onChange={handleChange} variant="standard" label="Email" type="email" sx={{ width: "100%", marginBottom: "6px" }} />
                         <TextField value={user.password} name="password" onChange={handleChange} variant="standard" label="Password" type="password" sx={{ width: "100%", marginBottom: "6px" }} />
                         <FormControlLabel control={<Checkbox sx={{ marginLeft: "6px" }} />} label="Remember me" sx={{ width: "100%" }} />
-                        <Button type="submit" variant="contained" sx={{ width: "50%", margin: "6px 25%" }} >
+                        <Button type="submit" variant="outlined" sx={{ width: "50%", margin: "6px 25%" }} >
                             Sign In
                         </Button>
                     </form>

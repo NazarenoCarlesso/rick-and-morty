@@ -65,14 +65,6 @@ export const MontserratNav = styled(Montserrat)((theme) => ({
     color: "#00d109",
 }))
 
-export const MontserratWhiteHome = styled(Typography)((theme) => ({
-    width: "75vw",
-    margin: "20px 0px",
-    textAlign: "center",
-    color: "white",
-    fontFamily: "Montserrat",
-}))
-
 export const TypoCharacter = styled(Typography)((theme) => ({
     color: "61d718",
     lineHeight: "28px",

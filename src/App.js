@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { createTheme, ThemeProvider } from '@mui/material'
-import Cards from './components/Cards/Cards'
 import About from './components/About'
 import Detail from './components/Detail/Detail'
 import Favorites from './components/Favorites'
@@ -9,6 +8,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import SignIn from './components/SignIn'
 import Error from './components/Error'
+import Deck from './components/Deck'
 
 export default function App() {
     const [characters, setCharacters] = useState([])
@@ -78,9 +78,9 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<SignIn onLogin={onLogin} />} />
                 <Route path='/home' element={<Home onSearch={onSearch} />} />
-                <Route path='/deck' element={<Cards characters={characters} close={onClose} />} />
-                <Route path='/about' element={<About />} />
+                <Route path='/deck' element={<Deck onSearch={onSearch} characters={characters} close={onClose} />} />
                 <Route path='/favorites' element={<Favorites />} />
+                <Route path='/about' element={<About />} />
                 <Route path='/detail/:id' element={<Detail />} />
                 <Route path='/*' element={<Error />} />
             </Routes>

@@ -1,9 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { filterGender, filterReset, filterSpecie, filterStatus, orderCards } from '../redux/actions'
-import { Grid, MenuItem, Select } from '@mui/material'
-import Card from './Card/Card'
-import { NeonPaper } from './Custom'
+import { Button, Grid, MenuItem, Select } from '@mui/material'
+import { MontserratBold, NeonPaper } from './Custom'
+import Cards from './Cards'
+import Portal from './Portal'
 
 export default function Favorites() {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ export default function Favorites() {
         gender: 'All',
         specie: 'All',
         status: 'All',
-        order: 'Ascendente'
+        order: 'Oldest'
     })
 
     const handeFilter = () => {
@@ -31,26 +32,38 @@ export default function Favorites() {
     const handleFilterSpecie = (event) => setFilter({ ...filter, specie: event.target.value })
     const handleFilterStatus = (event) => setFilter({ ...filter, status: event.target.value })
     const handleOrder = (event) => setFilter({ ...filter, order: event.target.value })
+    const handleRestart = () => setFilter({
+        gender: 'All',
+        specie: 'All',
+        status: 'All',
+        order: 'Oldest'
+    })
 
     return (
-        <Grid container direction="column">
-            <Grid sx={{ minHeight: "80px" }} />
-            <NeonPaper>
-                <Grid container direction="row" >
-                    <Select variant="standard" label="Order" defaultValue="Oldest" onChange={handleOrder} >
+        <Grid container direction="column" alignItems="center" sx={{ maxWidth: "100%" }} >
+            <Grid sx={{ minHeight: "50px" }} />
+            <Portal position="left" />
+            <Portal position="right" />
+            <Cards characters={myFavorites} />
+            <NeonPaper sx={{ width: "900px", padding:"14px" }} >
+                <Grid container direction="row" justifyContent="center" alignItems="center" >
+                    <MontserratBold sx={{ margin: "0px 10px" }} >Order:</MontserratBold>
+                    <Select value={filter.order} variant="standard" label="Order" defaultValue="Oldest" onChange={handleOrder} sx={{ width: "110px" }} >
                         <MenuItem value="Oldest">Oldest</MenuItem>
                         <MenuItem value="Newest">Newest</MenuItem>
                         <MenuItem value="Ascending">Ascending</MenuItem>
                         <MenuItem value="Descending">Descending</MenuItem>
                     </Select>
-                    <Select variant="standard" label="Gender" defaultValue="All" onChange={handleFilterGender} >
+                    <MontserratBold sx={{ margin: "0px 10px" }} >Gender:</MontserratBold>
+                    <Select value={filter.gender} variant="standard" label="Gender" defaultValue="All" onChange={handleFilterGender} sx={{ width: "110px" }} >
                         <MenuItem value="All">All</MenuItem>
                         <MenuItem value="Male">Male</MenuItem>
                         <MenuItem value="Female">Female</MenuItem>
                         <MenuItem value="Genderless">Genderless</MenuItem>
                         <MenuItem value="unknown">Unknown</MenuItem>
                     </Select>
-                    <Select variant="standard" label="Specie" defaultValue="All" onChange={handleFilterSpecie} >
+                    <MontserratBold sx={{ margin: "0px 10px" }} >Specie:</MontserratBold>
+                    <Select value={filter.specie} variant="standard" label="Specie" defaultValue="All" onChange={handleFilterSpecie} sx={{ width: "110px" }} >
                         <MenuItem value="All">All</MenuItem>
                         <MenuItem value="Human">Human</MenuItem>
                         <MenuItem value="Alien">Alien</MenuItem>
@@ -61,17 +74,18 @@ export default function Favorites() {
                         <MenuItem value="Mythological Creature">Mythological Creature</MenuItem>
                         <MenuItem value="unknown">Unknown</MenuItem>
                     </Select>
-                    <Select variant="standard" label="Status" defaultValue="All" onChange={handleFilterStatus} >
+                    <MontserratBold sx={{ margin: "0px 10px" }} >Status:</MontserratBold>
+                    <Select value={filter.status} variant="standard" label="Status" defaultValue="All" onChange={handleFilterStatus} sx={{ width: "110px" }} >
                         <MenuItem value="All">All</MenuItem>
                         <MenuItem value="Alive">Alive</MenuItem>
                         <MenuItem value="Dead">Dead</MenuItem>
                         <MenuItem value="unknown">Unknown</MenuItem>
                     </Select>
+                    <Button variant="outlined" onClick={handleRestart} sx={{ margin: "0px 16px" }} >
+                        Restart
+                    </Button>
                 </Grid>
             </NeonPaper>
-            <Grid container direction="row">
-                {myFavorites.map(c => (<Card key={c.id} id={c.id} name={c.name} species={c.species} gender={c.gender} image={c.image} status={c.status} onClose={() => { }} />))}
-            </Grid>
         </Grid>
     )
 }
