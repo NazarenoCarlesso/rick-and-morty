@@ -1,13 +1,16 @@
-import { alpha, Box, Button, Grid, InputBase, Paper, Select, styled, Typography } from '@mui/material'
+import { alpha, Box, Button, Checkbox, Grid, InputBase, Paper, Select, styled, TextField, Typography } from '@mui/material'
 
 export const SelectCustom = styled(Select)(() => ({
     "& .MuiSvgIcon-root": {
-        color: "#00d809",
+        color: "#00c308",
     },
     "& .MuiOutlinedInput-notchedOutline": {
         borderColor: "transparent",
         borderRadius: "1rem",
     },
+    '&:before': {
+        borderColor: "#00660e",
+    }
 }))
 
 export const SearchBar = styled('div')(({ theme }) => ({
@@ -106,4 +109,21 @@ export const PaperTriple = styled(NeonPaper)((theme) => ({
     width: "280px",
     height: "240px",
     backgroundColor: "transparent",
+}))
+
+export const TextFieldCustom = styled(TextField)((theme) => ({
+    '& .MuiFormLabel-root': {
+        color: "#00660e"
+    },
+    '& .MuiInputBase-root': {
+        '&:before': {
+            borderColor: "#00660e",
+        }
+    }
+}))
+
+export const CheckboxCustom = styled(Checkbox)((theme) => ({
+    '& .MuiSvgIcon-root': {
+        fill: "#00a507"
+    }
 }))

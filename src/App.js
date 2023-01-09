@@ -12,23 +12,17 @@ import Deck from './components/Deck'
 
 export default function App() {
     const [characters, setCharacters] = useState([])
-    const [access, setAccess] = useState(true)
+    const [access, setAccess] = useState(false)
     const navigate = useNavigate()
-    const username = 'user@user.com'
-    const password = 'password0'
 
     useEffect(() => {
         for (let i = 600; i <= 630; i++) { onSearch(i) }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const onLogin = (user) => {
-        if (user.password === password && user.username === username) {
-            setAccess(true)
-            navigate('/home')
-            return true
-        }
-        return false
+    const onLogin = () => {
+        setAccess(true)
+        navigate('/home')
     }
 
     const onSearch = async (character) => {
