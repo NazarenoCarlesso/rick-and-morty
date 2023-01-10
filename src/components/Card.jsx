@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Card.module.css'
-import { addFav, deleteFav } from '../../redux/actions'
+import { addFav, deleteFav } from '../redux/actions'
 
 export default function Card(props) {
    const [isFav, setIsFav] = useState(false)
@@ -33,7 +33,11 @@ export default function Card(props) {
                ? (<button onClick={handleFavorite}>❤️</button>)
                : (<button onClick={handleFavorite}>🤍</button>)
          }
-         <button className={styles.close} onClick={props.onClose}>❌</button>
+         {
+            props.onClose
+               ? (<button className={styles.close} onClick={() => props.onClose(props.id)}>❌</button>)
+               : (<></>)
+         }
          <div className={styles.card}>
             <div className={styles.character}>
                <Link to={`/detail/${props.id}`}>

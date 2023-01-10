@@ -21,6 +21,7 @@ const reducer = (state = initialState, { type, payload }) => {
         case DELETE_FAV:
             return {
                 ...state,
+                myFavorites: state.myFavorites.filter(c => c.id !== payload),
                 allFavorites: state.allFavorites.filter(c => c.id !== payload)
             }
         case FILTER_RESET:

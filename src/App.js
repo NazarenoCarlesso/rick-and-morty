@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { createTheme, ThemeProvider } from '@mui/material'
 import About from './components/About'
-import Detail from './components/Detail/Detail'
+import Detail from './components/Detail'
 import Favorites from './components/Favorites'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
@@ -12,7 +12,7 @@ import Deck from './components/Deck'
 
 export default function App() {
     const [characters, setCharacters] = useState([])
-    const [access, setAccess] = useState(false)
+    const [access, setAccess] = useState(true)
     const navigate = useNavigate()
 
     useEffect(() => {

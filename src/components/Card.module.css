@@ -4,11 +4,10 @@
 }
 
 .divContainer button {
-    background-color: #3a7eec;
+    background-color: #001405c2;
     border-radius: 0.25rem;
     margin-left: 25px;
-    border: 1px solid #00000040;
-    color: #101010;
+    border: 1px solid #40db00;
     font-size: 13px;
     height: 20px;
     padding: 0px;
