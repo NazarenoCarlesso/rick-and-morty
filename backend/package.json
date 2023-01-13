@@ -1,0 +1,14 @@
+{
+  "name": "rick-and-morty-api",
+  "version": "0.1.0",
+  "main": "./src/app.js",
+  "scripts": {
+    "dev": "nodemon ./src/routes/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "nodemon": "^2.0.20"
+  }
+}
