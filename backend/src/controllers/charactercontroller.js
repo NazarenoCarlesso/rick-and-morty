@@ -1,4 +1,11 @@
-const getCharacterById = (res, id) => {
+const getAllCharacters = (req, res) => {
+    fetch('https://rickandmortyapi.com/api/character')
+        .then(response => response.json())
+        .then(data => res.json(data))
+}
+
+const getCharacterById = (req, res) => {
+    const { id } = req.params
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
         .then((response) => response.json())
         .then((data) => {
@@ -18,7 +25,8 @@ const getCharacterById = (res, id) => {
         })
 }
 
-const getCharacterDetail = (res, id) => {
+const getCharacterDetail = (req, res) => {
+    const { id } = req.params
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
         .then((response) => response.json())
         .then((data) => {
@@ -41,4 +49,4 @@ const getCharacterDetail = (res, id) => {
         })
 }
 
-module.exports = { getCharacterById, getCharacterDetail }
+export { getAllCharacters, getCharacterById, getCharacterDetail }
