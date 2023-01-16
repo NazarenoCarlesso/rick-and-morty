@@ -1,4 +1,4 @@
-import Server from './src/server.js'
+import Server from './src/app.js'
 
 const server = new Server
 

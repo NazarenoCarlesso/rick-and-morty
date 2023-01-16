@@ -1,52 +1,37 @@
-const getAllCharacters = (req, res) => {
-    fetch('https://rickandmortyapi.com/api/character')
-        .then(response => response.json())
-        .then(data => res.json(data))
+const getAllCharacters = async (req, res) => {
+    try {
+        const characters = await fetch('https://rickandmortyapi.com/api/character')
+            .then(response => response.json())
+        res.status(200).json(characters)
+    } catch (error) {
+        res.status(500).send('Internal Server Error')
+    }
 }
 
-const getCharacterById = (req, res) => {
+const getCharacterById = async (req, res) => {
     const { id } = req.params
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-            const character = {
-                id: data.id,
-                name: data.name,
-                gender: data.gender,
-                species: data.species,
-                image: data.image
-            }
-            res.writeHead(200, { 'Content-type': 'application/json' })
-            res.end(JSON.stringify(character))
-        })
-        .catch((error) => {
-            res.writeHead(400, { 'Content-type': 'text/plain' })
-            res.end('character not found')
-        })
+    if (!id) res.status(400).send('Bad Request')
+    if (id < 1 || id > 826) res.status(400).send('Bad Request')
+    try {
+        const character = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+            .then(response => response.json())
+        res.status(200).json(character)
+    } catch (error) {
+        res.status(500).send('Internal Server Error')
+    }
 }
 
-const getCharacterDetail = (req, res) => {
+const getCharacterDetail = async (req, res) => {
     const { id } = req.params
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-            const character = {
-                id: data.id,
-                name: data.name,
-                gender: data.gender,
-                species: data.species,
-                image: data.image,
-                type: data.type,
-                origin: data.origin,
-                location: data.location
-            }
-            res.writeHead(200, { 'Content-type': 'application/json' })
-            res.end(JSON.stringify(character))
-        })
-        .catch((error) => {
-            res.writeHead(400, { 'Content-type': 'text/plain' })
-            res.end('character not found')
-        })
+    if (!id) res.status(400).send('Bad Request')
+    if (id < 1 || id > 826) res.status(400).send('Bad Request')
+    try {
+        const character = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+            .then((response) => response.json())
+        res.status(200).json(character)
+    } catch (error) {
+        res.status(500).send('Internal Server Error')
+    }
 }
 
 export { getAllCharacters, getCharacterById, getCharacterDetail }
