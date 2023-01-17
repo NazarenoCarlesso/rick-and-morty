@@ -8,8 +8,8 @@ router.get('/characters', getAllCharacters)
 router.get('/character/:id', getCharacterById)
 router.get('/detail/:id', getCharacterDetail)
 
-router.get('/fav', getFavorites)
-router.post('/fav', setFavorites)
-router.delete('/fav/:id', deleteFavorite)
+router.get('/favorites', getFavorites)
+router.post('/favorites', setFavorites)
+router.delete('/favorites/:id', deleteFavorite)
 
 export default router
