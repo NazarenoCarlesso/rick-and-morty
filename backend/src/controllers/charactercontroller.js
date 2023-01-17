@@ -10,7 +10,7 @@ const getAllCharacters = async (req, res) => {
 
 const getCharacterById = async (req, res) => {
     const { id } = req.params
-    if (!id) res.status(400).send('Bad Request')
+    if (isNaN(id)) res.status(400).send('Bad Request')
     if (id < 1 || id > 826) res.status(400).send('Bad Request')
     try {
         const character = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
@@ -23,7 +23,7 @@ const getCharacterById = async (req, res) => {
 
 const getCharacterDetail = async (req, res) => {
     const { id } = req.params
-    if (!id) res.status(400).send('Bad Request')
+    if (isNaN(id)) res.status(400).send('Bad Request')
     if (id < 1 || id > 826) res.status(400).send('Bad Request')
     try {
         const character = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
