@@ -12,7 +12,7 @@ import Deck from './components/Deck'
 
 export default function App() {
     const [characters, setCharacters] = useState([])
-    const [access, setAccess] = useState(true)
+    const [access, setAccess] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function App() {
     }
 
     const onSearch = async (character) => {
-        const data = await fetch(`https://rickandmortyapi.com/api/character/${character}`)
+        const data = await fetch(`http://localhost:3001/rickandmorty/character/${character}`)
             .then((response) => response.json())
         if (!data.id) {
             window.alert('No hay personajes con ese ID')

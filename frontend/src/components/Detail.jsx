@@ -12,9 +12,10 @@ export default function Detail() {
     const nextChar = (id) => id === maxChar ? 1 : id + 1
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        fetch(`http://localhost:3001/rickandmorty/detail/${id}`)
             .then((response) => response.json())
             .then((char) => {
+                console.log(char)
                 char.id
                     ? setCharacter(char)
                     : window.alert('No hay personajes con ese ID')

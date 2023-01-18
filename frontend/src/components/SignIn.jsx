@@ -44,12 +44,12 @@ export default function SignIn({ onLogin }) {
                             <TextFieldCustom required
                                 value={user.username}
                                 error={errors.username.length > 0}
-                                helperText={errors.username.map(e => <>{e}<br /></>)}
+                                helperText={errors.username.map((e, i) => <Typography variant="span" key={i}>{e}<br /></Typography>)}
                                 name="username" onChange={handleChange} variant="standard" label="Email" type="email" sx={{ width: "100%", marginBottom: "6px" }} />
                             <TextFieldCustom required
                                 value={user.password}
                                 error={errors.password.length > 0}
-                                helperText={errors.password.map(e => <>{e}<br /></>)}
+                                helperText={errors.password.map((e, i) => <Typography variant="span" key={i}>{e}<br /></Typography>)}
                                 name="password" onChange={handleChange} variant="standard" label="Password" type="password" sx={{ width: "100%", marginBottom: "6px" }} />
                             <FormControlLabel control={<CheckboxCustom sx={{ marginLeft: "6px" }} />} label="Remember me" sx={{ width: "100%" }} />
                             <Button
