@@ -17,10 +17,8 @@ export default function App() {
     const [access, setAccess] = useState(false)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        for (let i = 600; i <= 630; i++) { onSearch(i) }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => { for (let i = 600; i <= 630; i++) { onSearch(i) } }, [])
 
     const onLogin = () => {
         setAccess(true)
@@ -28,7 +26,7 @@ export default function App() {
     }
 
     const onSearch = async (character) => {
-        const data = await fetch(`${BACK}/rickandmorty/character/${character}`)
+        const data = await fetch(`${BACK}/api/character/${character}`)
             .then((response) => response.json())
         if (!data.id) {
             window.alert('No hay personajes con ese ID')
@@ -46,12 +44,10 @@ export default function App() {
         setCharacters((oldChars) => oldChars.filter(c => c.id !== character))
     }
 
-    useEffect(() => {
-        !access && navigate('/');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [access])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => { !access && navigate('/') }, [access])
 
-    const nav = access ? <NavBar /> : <></>;
+    const nav = access ? <NavBar /> : <></>
 
     const theme = createTheme({
         palette: {

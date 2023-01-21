@@ -12,7 +12,10 @@ export default function Deck({ characters, close, onSearch }) {
     const handleInputChange = (event) => setCharacter(event.target.value)
 
     const handleKeyDown = async (event) => {
-        if (event.key === 'Enter') onSearch(character)
+        if (event.key === 'Enter') {
+            onSearch(character)
+            setCharacter('')
+        }
     }
 
     return (
@@ -27,11 +30,11 @@ export default function Deck({ characters, close, onSearch }) {
                         <MontserratBold variant="h6" sx={{ margin: "0px 10px" }} >
                             Find your favorite characters
                         </MontserratBold>
-                        <SearchBar value={character} onChange={handleInputChange} onKeyDown={handleKeyDown} sx={{ borderRadius: "1.5rem", backgroundColor: "transparent", border: "solid 2px" }} >
+                        <SearchBar onChange={handleInputChange} onKeyDown={handleKeyDown} sx={{ borderRadius: "1.5rem", backgroundColor: "transparent", border: "solid 2px" }} >
                             <SearchIconWrapper>
                                 <SearchIcon />
                             </SearchIconWrapper>
-                            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+                            <StyledInputBase value={character} placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
                         </SearchBar>
                     </Grid>
                 </NeonPaper>

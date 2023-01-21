@@ -1,0 +1,2 @@
+![Rick and Morty](frontend/public/img/nav_logo.png)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/709b8e18-30dc-434d-bcdf-c277222fbd34/deploy-status)](https://app.netlify.com/sites/nazarenocarlesso-rick-and-morty/deploys)

@@ -7,9 +7,7 @@ export default function Search({ onSearch }) {
     const [character, setCharacter] = React.useState('')
     const navigate = useNavigate()
 
-    const handleInputChange = (event) => {
-        setCharacter(event.target.value)
-    }
+    const handleInputChange = (event) => setCharacter(event.target.value)
 
     const handleKeyDown = async (event) => {
         if (event.key === 'Enter') {

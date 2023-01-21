@@ -23,7 +23,7 @@ class Server {
     }
 
     routes() {
-        this.app.use('/rickandmorty', router)
+        this.app.use('/api', router)
     }
 
     listen() {

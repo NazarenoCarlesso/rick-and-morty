@@ -23,8 +23,7 @@ export default function Card(props) {
       allFavorites.forEach(fav => {
          if (fav.id === props.id) setIsFav(true)
       })
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [allFavorites])
+   }, [allFavorites, props.id])
 
    return (
       <div className={styles.divContainer}>
@@ -45,7 +44,7 @@ export default function Card(props) {
                   <img src={props.image} alt='Character' />
                </Link>
             </div>
-            <img className={styles.logo} src='./img/Rick_and_Morty.png' alt='Rick And Morty' />
+            <img className={styles.logo} src='./img/card_logo.png' alt='Rick And Morty' />
             <div className={styles.light}></div>
          </div>
       </div>

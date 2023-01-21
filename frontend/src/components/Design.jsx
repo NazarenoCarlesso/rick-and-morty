@@ -21,16 +21,12 @@ export default function Design() {
                         About me
                     </MontserratBold>
                 </Link>
-                <a href="https://github.com/NazarenoCarlesso" >
-                    <Button sx={{ margin: "0px 5px" }}>
-                        <GitHubIcon />
-                    </Button>
-                </a>
-                <a href="https://github.com/NazarenoCarlesso/rick-and-morty" >
-                    <Button>
-                        <StarIcon />
-                    </Button>
-                </a>
+                <Button href="https://github.com/NazarenoCarlesso" sx={{ margin: "0px 5px" }}>
+                    <GitHubIcon />
+                </Button>
+                <Button href="https://github.com/NazarenoCarlesso/rick-and-morty" >
+                    <StarIcon />
+                </Button>
             </Grid>
         </PaperTriple>
     )
