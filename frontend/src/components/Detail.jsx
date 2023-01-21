@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Montserrat, MontserratBold, NeonPaper } from './Custom'
 
+const BACK = process.env.REACT_APP_BACK
+
 export default function Detail() {
     const { id } = useParams()
     const [character, setCharacter] = useState([])
@@ -12,7 +14,7 @@ export default function Detail() {
     const nextChar = (id) => id === maxChar ? 1 : id + 1
 
     useEffect(() => {
-        fetch(`http://localhost:3001/rickandmorty/detail/${id}`)
+        fetch(`${BACK}/rickandmorty/detail/${id}`)
             .then((response) => response.json())
             .then((char) => {
                 console.log(char)

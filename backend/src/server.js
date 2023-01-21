@@ -2,7 +2,10 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import router from './routes/router.js'
-const PORT = 3001
+
+import dotenv from 'dotenv'
+dotenv.config()
+const { PORT } = process.env
 
 class Server {
     constructor() {

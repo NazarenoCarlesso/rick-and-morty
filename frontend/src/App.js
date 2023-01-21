@@ -10,6 +10,8 @@ import SignIn from './components/SignIn'
 import Error from './components/Error'
 import Deck from './components/Deck'
 
+const BACK = process.env.REACT_APP_BACK
+
 export default function App() {
     const [characters, setCharacters] = useState([])
     const [access, setAccess] = useState(false)
@@ -26,7 +28,7 @@ export default function App() {
     }
 
     const onSearch = async (character) => {
-        const data = await fetch(`http://localhost:3001/rickandmorty/character/${character}`)
+        const data = await fetch(`${BACK}/rickandmorty/character/${character}`)
             .then((response) => response.json())
         if (!data.id) {
             window.alert('No hay personajes con ese ID')

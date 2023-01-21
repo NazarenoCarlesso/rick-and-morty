@@ -1,5 +1,5 @@
 import session from 'supertest'
-import Server from '../app'
+import Server from '../server'
 
 let server, app, agent
 
