@@ -17,8 +17,11 @@ export default function App() {
     const [access, setAccess] = useState(false)
     const navigate = useNavigate()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { for (let i = 600; i <= 630; i++) { onSearch(i) } }, [])
+    useEffect(() => {
+        const initialDeck = [127, 156, 163, 372, 472, 473, 580, 618, 619, 624, 625, 667, 809]
+        initialDeck.forEach(c => onSearch(c))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const onLogin = () => {
         setAccess(true)
