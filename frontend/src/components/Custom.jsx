@@ -147,25 +147,38 @@ export const Filter = styled(NeonPaper)(({ theme }) => ({
     padding: "14px",
     margin: "0px",
     [theme.breakpoints.down('lg')]: {
-        width: "600px"
+        width: "600px",
     },
     [theme.breakpoints.down('md')]: {
-        width: "400px"
+        width: "400px",
     },
     [theme.breakpoints.down('sm')]: {
-        width: "260px"
+        width: "260px",
     },
 }))
 
 export const Space = styled(Grid)(({ theme }) => ({
-    height: "250px"  ,
+    height: "250px",
     [theme.breakpoints.down('lg')]: {
-        height: "220px"
+        height: "220px",
     },
     [theme.breakpoints.down('md')]: {
-        height: "160px"
+        height: "160px",
     },
     [theme.breakpoints.down('sm')]: {
-        height: "100px"
-    }, 
+        height: "100px",
+    },
+}))
+
+export const ImgDetail = styled(Box)(({ theme }) => ({
+    height: "300px",
+    width: "300px",
+    [theme.breakpoints.down(460)]: {
+        height: "250px",
+        width: "250px",
+    },
+    [theme.breakpoints.down(410)]: {
+        height: "230px",
+        width: "230px",
+    },
 }))
