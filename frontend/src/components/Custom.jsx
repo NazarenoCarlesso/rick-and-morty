@@ -64,8 +64,21 @@ export const MontserratBold = styled(Typography)((theme) => ({
     fontWeight: "bold",
 }))
 
-export const MontserratNav = styled(Montserrat)((theme) => ({
+export const MontserratNav = styled(Montserrat)(({ theme }) => ({
     color: "#00d109",
+    width: "90px",
+    [theme.breakpoints.down('sm')]: {
+        width: "inherit",
+    }
+}))
+
+export const LogoNav = styled(Box)(({ theme }) => ({
+    width: "150px",
+    mixBlendMode: "hard-light",
+    opacity: 0.7,
+    [theme.breakpoints.down('sm')]: {
+        display: "none",
+    }
 }))
 
 export const TypoCharacter = styled(Typography)((theme) => ({
@@ -107,7 +120,7 @@ export const NeonPaper = styled(Paper)((theme) => ({
 
 export const PaperTriple = styled(NeonPaper)((theme) => ({
     width: "280px",
-    height: "240px",
+    minHeight: "240px",
     backgroundColor: "transparent",
 }))
 
@@ -126,4 +139,33 @@ export const CheckboxCustom = styled(Checkbox)((theme) => ({
     '& .MuiSvgIcon-root': {
         fill: "#00a507"
     }
+}))
+
+export const Filter = styled(NeonPaper)(({ theme }) => ({
+    width: "900px",
+    maxWidth: "80vw",
+    padding: "14px",
+    margin: "0px",
+    [theme.breakpoints.down('lg')]: {
+        width: "600px"
+    },
+    [theme.breakpoints.down('md')]: {
+        width: "400px"
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: "260px"
+    },
+}))
+
+export const Space = styled(Grid)(({ theme }) => ({
+    height: "250px"  ,
+    [theme.breakpoints.down('lg')]: {
+        height: "220px"
+    },
+    [theme.breakpoints.down('md')]: {
+        height: "160px"
+    },
+    [theme.breakpoints.down('sm')]: {
+        height: "100px"
+    }, 
 }))

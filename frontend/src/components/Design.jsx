@@ -15,7 +15,7 @@ export default function Design() {
             <Montserrat variant="h6" sx={{ margin: "15px 0px", paddingLeft: "10px", borderLeft: "solid 4px", fontSize: "1rem" }} >
                 Haha what a loser!<br />Can you believe that?
             </Montserrat>
-            <Grid container direction="row" justifyContent="center" alignItems="center" sx={{ width: "100%", height: "45px" }}>
+            <Grid container direction="row" justifyContent="center" alignItems="center" sx={{ width: "100%" }}>
                 <Link to="/about">
                     <MontserratBold sx={{ margin: "0px 30px" }}>
                         About me
@@ -24,7 +24,7 @@ export default function Design() {
                 <Button href="https://github.com/NazarenoCarlesso" sx={{ margin: "0px 5px" }}>
                     <GitHubIcon />
                 </Button>
-                <Button href="https://github.com/NazarenoCarlesso/rick-and-morty" >
+                <Button href="https://github.com/NazarenoCarlesso/rick-and-morty">
                     <StarIcon />
                 </Button>
             </Grid>

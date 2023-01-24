@@ -25,7 +25,7 @@ export default function Deck({ characters, close, onSearch }) {
             <Portal position="right" />
             <Cards characters={characters} close={close} />
             <Grid container direction="row" justifyContent="center" >
-                <NeonPaper sx={{ width: "600px", height: "44px", padding: "10px" }} >
+                <NeonPaper sx={{ width: "600px", padding: "10px" }} >
                     <Grid container direction="row" justifyContent="center" alignItems="center" >
                         <MontserratBold variant="h6" sx={{ margin: "0px 10px" }} >
                             Find your favorite characters
@@ -38,7 +38,7 @@ export default function Deck({ characters, close, onSearch }) {
                         </SearchBar>
                     </Grid>
                 </NeonPaper>
-                <NeonPaper sx={{ width: "300px", height: "44px", padding: "10px" }} >
+                <NeonPaper sx={{ width: "300px", padding: "10px" }} >
                     <Grid container direction="row" justifyContent="center" alignItems="center" sx={{ height: "100%" }} >
                         <MontserratBold variant="h6" sx={{ margin: "0px 10px" }} >
                             Roll those dice !

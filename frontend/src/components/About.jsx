@@ -2,12 +2,12 @@ import { Button, Grid } from '@mui/material'
 import React from 'react'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import StarIcon from '@mui/icons-material/Star'
-import { Montserrat, MontserratBold, PaperTriple } from './Custom'
+import { Montserrat, MontserratBold, PaperTriple, Space } from './Custom'
 
 export default function About() {
     return (
         <Grid container direction="column" alignItems="center" sx={{ maxWidth: "100%" }} >
-            <Grid sx={{ minHeight: "250px" }} />
+            <Space />
             <Grid container direction="row" justifyContent="space-evenly" alignItems="center" sx={{ width: "90vw" }} >
                 <PaperTriple>
                     <MontserratBold variant="h4" >
