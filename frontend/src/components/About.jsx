@@ -52,7 +52,7 @@ export default function About() {
                         Why did you built this?
                     </MontserratBold>
                     <Montserrat sx={{ margin: "15px 0px", paddingLeft: "10px", borderLeft: "solid 4px" }} >
-                        I build this app during my four months Fullstack Developer Bootcamp
+                        I built this app during my four months Fullstack Developer Bootcamp
                         at soyHenry to demonstrate what has been learned and explore our
                         creativity
                     </Montserrat>

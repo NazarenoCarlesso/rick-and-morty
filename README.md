@@ -26,8 +26,10 @@ Fullstack Web Developer, who likes to learn new things and collaborate in differ
 ![NodeJS](https://img.shields.io/badge/NodeJS-black?style=flat-square&logo=node.js&logoColor=%68a063)
 ![Express](https://img.shields.io/badge/Express-black.svg?style=flat-square&logo=express&logoColor=%2361DAFB)
 ![MaterialUI](https://img.shields.io/badge/MaterialUI-black.svg?style=flat-square&logo=mui&logoColor=%230081CB)
-![HTML5](https://img.shields.io/badge/html5-black.svg?style=flat-square&logo=html5&logoColor=%23E34F26)
-![CSS3](https://img.shields.io/badge/css3-black.svg?style=flat-square&logo=css3&logoColor=%231572B6)
+![HTML5](https://img.shields.io/badge/HTML5-black.svg?style=flat-square&logo=html5&logoColor=%23E34F26)
+![CSS3](https://img.shields.io/badge/CSS3-black.svg?style=flat-square&logo=css3&logoColor=%231572B6)
+![Netlify](https://img.shields.io/badge/Netlify-black.svg?style=flat-square&logo=netlify&logoColor=#00C7B7)
+
 # Getting Started
 
 ### Instalation
