@@ -1,52 +1,66 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Card.module.css'
 import { addFav, deleteFav } from '../redux/actions'
 
 export default function Card(props) {
-   const [isFav, setIsFav] = useState(false)
    const dispatch = useDispatch()
-   const allFavorites = useSelector(state => state.allFavorites)
+   const isFav = useSelector(state => state.allFavorites.some(fav => fav.id === props.id))
 
    const handleFavorite = () => {
       if (isFav) {
-         setIsFav(false)
          dispatch(deleteFav(props.id))
       } else {
-         setIsFav(true)
-         dispatch(addFav(props))
+         dispatch(addFav({
+            id: props.id,
+            name: props.name,
+            species: props.species,
+            gender: props.gender,
+            image: props.image,
+            status: props.status
+         }))
       }
    }
 
-   useEffect(() => {
-      allFavorites.forEach(fav => {
-         if (fav.id === props.id) setIsFav(true)
-      })
-   }, [allFavorites, props.id])
-
    return (
-      <div className={styles.divContainer}>
-         {
-            isFav
-               ? (<button onClick={handleFavorite}>❤️</button>)
-               : (<button onClick={handleFavorite}>🤍</button>)
-         }
-         {
-            props.onClose
-               ? (<button className={styles.close} onClick={() => props.onClose(props.id)}>❌</button>)
-               : (<></>)
-         }
+      <article className={styles.divContainer}>
          <div className={styles.card}>
-            <div className={styles.character}>
-               <Link to={`/detail/${props.id}`}>
-                  <h2 title={props.name}>{props.name}</h2>
-                  <img src={props.image} alt='Character' />
+            <div className={styles.cardHeader}>
+               <Link className={styles.name} to={`/detail/${props.id}`} title={props.name}>
+                  {props.name}
                </Link>
+               <div className={styles.cardActions}>
+                  <button
+                     className={styles.favorite}
+                     type="button"
+                     onClick={handleFavorite}
+                     aria-label={isFav ? `Remove ${props.name} from favorites` : `Add ${props.name} to favorites`}
+                     aria-pressed={isFav}
+                  >
+                     {isFav ? '♥' : '♡'}
+                  </button>
+                  {props.onClose && (
+                     <button
+                        className={styles.close}
+                        type="button"
+                        onClick={() => props.onClose(props.id)}
+                        aria-label={`Remove ${props.name} from deck`}
+                     >
+                        ×
+                     </button>
+                  )}
+               </div>
             </div>
-            <img className={styles.logo} src='/img/card_logo.png' alt='Rick And Morty' />
-            <div className={styles.light}></div>
+
+            <Link className={styles.character} to={`/detail/${props.id}`} aria-label={`View details for ${props.name}`}>
+               <img src={props.image} alt={props.name} />
+            </Link>
+
+            <footer className={styles.cardFooter}>
+               <span>Rick and Morty</span>
+               <span>{props.position}/{props.total}</span>
+            </footer>
          </div>
-      </div>
+      </article>
    )
 }

@@ -69,16 +69,18 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme} >
-            {nav}
-            <Routes>
-                <Route path='/' element={<SignIn onLogin={onLogin} />} />
-                <Route path='/home' element={<Home onSearch={onSearch} />} />
-                <Route path='/deck' element={<Deck onSearch={onSearch} characters={characters} close={onClose} />} />
-                <Route path='/favorites' element={<Favorites />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/detail/:id' element={<Detail />} />
-                <Route path='/*' element={<Error />} />
-            </Routes>
+            <div className="app-shell">
+                {nav}
+                <Routes>
+                    <Route path='/' element={<SignIn onLogin={onLogin} />} />
+                    <Route path='/home' element={<Home onSearch={onSearch} />} />
+                    <Route path='/deck' element={<Deck onSearch={onSearch} characters={characters} close={onClose} />} />
+                    <Route path='/favorites' element={<Favorites />} />
+                    <Route path='/about' element={<About />} />
+                    <Route path='/detail/:id' element={<Detail />} />
+                    <Route path='/*' element={<Error />} />
+                </Routes>
+            </div>
         </ThemeProvider>
     )
 }

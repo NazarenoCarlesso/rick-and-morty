@@ -1,54 +1,57 @@
-import { Button, Grid } from '@mui/material'
+import { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search'
-import React from 'react'
 import Cards from './Cards'
-import { MontserratBold, NeonPaper, SearchBar, SearchIconWrapper, StyledInputBase } from './Custom'
 import Portal from './Portal'
 
+const MAX_CHARACTER_ID = 826
+
 export default function Deck({ characters, close, onSearch }) {
-    const [character, setCharacter] = React.useState('')
-    const maxChar = 826;
+    const [characterId, setCharacterId] = useState('')
 
-    const handleInputChange = (event) => setCharacter(event.target.value)
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        if (!characterId) return
 
-    const handleKeyDown = async (event) => {
-        if (event.key === 'Enter') {
-            onSearch(character)
-            setCharacter('')
-        }
+        const added = await onSearch(characterId)
+        if (added) setCharacterId('')
+    }
+
+    const handleRandom = () => {
+        const randomId = Math.floor(Math.random() * MAX_CHARACTER_ID) + 1
+        onSearch(randomId)
     }
 
     return (
-        <Grid container direction="column" alignItems="center" sx={{ maxWidth: "100%" }} >
-            <Grid sx={{ minHeight: "50px" }} />
+        <main className="r deck-page">
             <Portal position="left" />
             <Portal position="right" />
-            <Cards characters={characters} close={close} />
-            <Grid container direction="row" justifyContent="center" >
-                <NeonPaper sx={{ width: "600px", padding: "10px" }} >
-                    <Grid container direction="row" justifyContent="center" alignItems="center" >
-                        <MontserratBold variant="h6" sx={{ margin: "0px 10px" }} >
-                            Find your favorite characters
-                        </MontserratBold>
-                        <SearchBar onChange={handleInputChange} onKeyDown={handleKeyDown} sx={{ borderRadius: "1.5rem", backgroundColor: "transparent", border: "solid 2px" }} >
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase value={character} placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-                        </SearchBar>
-                    </Grid>
-                </NeonPaper>
-                <NeonPaper sx={{ width: "300px", padding: "10px" }} >
-                    <Grid container direction="row" justifyContent="center" alignItems="center" sx={{ height: "100%" }} >
-                        <MontserratBold variant="h6" sx={{ margin: "0px 10px" }} >
-                            Roll those dice !
-                        </MontserratBold>
-                        <Button variant="outlined" onClick={() => onSearch(Math.floor(Math.random() * maxChar))} >
-                            Random
-                        </Button>
-                    </Grid>
-                </NeonPaper>
-            </Grid>
-        </Grid>
+
+            <div className="deck-content">
+                <Cards characters={characters} close={close} />
+
+                <div className="deck-actions">
+                    <form className="deck-search" onSubmit={handleSubmit}>
+                        <label htmlFor="deck-character-search">Find your favorite characters</label>
+                        <SearchIcon className="deck-search-icon" aria-hidden="true" />
+                        <input
+                            id="deck-character-search"
+                            type="number"
+                            min="1"
+                            max={MAX_CHARACTER_ID}
+                            inputMode="numeric"
+                            value={characterId}
+                            onChange={(event) => setCharacterId(event.target.value)}
+                            placeholder="Search..."
+                        />
+                        <button type="submit" className="sr-only">Add character</button>
+                    </form>
+
+                    <div className="deck-random">
+                        <span>Roll those dice!</span>
+                        <button className="btn" type="button" onClick={handleRandom}>Random</button>
+                    </div>
+                </div>
+            </div>
+        </main>
     )
 }

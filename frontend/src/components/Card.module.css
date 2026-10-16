@@ -1,77 +1,157 @@
 .divContainer {
-    margin: 30px 0px;
-    z-index: 10;
+    position: relative;
+    flex: 0 0 212px;
+    padding: 8px;
+    border-radius: 15px;
+    background: linear-gradient(155deg, #49f29a 0%, #08aa5b 52%, #baff35 100%);
+    box-shadow: 0 0 26px #37f88926;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.divContainer button {
-    background-color: #001405c2;
-    border-radius: 0.25rem;
-    margin-left: 25px;
-    border: 1px solid #40db00;
-    font-size: 13px;
-    height: 20px;
-    padding: 0px;
-    width: 25px;
+.divContainer::after {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(115deg, transparent 28%, #ffffff00 40%, #ffffff85 49%, #ffffff00 58%, transparent 72%);
+    background-size: 240% 100%;
+    content: '';
+    pointer-events: none;
+    animation: card-shine 5s ease-in-out infinite;
 }
 
-.divContainer .close {
-    margin-left: 145px;
+.divContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #0008, 0 0 30px #39ff8840;
 }
 
 .card {
-    background: linear-gradient(0deg ,#11234c 70%, #1f60cc 100%);
-    border: 1px solid #1f60cc;
+    display: flex;
+    height: 298px;
+    flex-direction: column;
+    gap: 7px;
+    overflow: hidden;
+    padding: 8px 8px 5px;
+    border-radius: 9px;
+    background: linear-gradient(145deg, #0d2e1e, #04170e 78%);
 }
 
-.card {
-    border-radius: 0.5rem;
-    box-shadow: 2px 6px 10px 0px #0000008d;
-    height: 320px;
-    margin: 0px 10px;
-    text-align: center;
-    width: 220px;
+.cardHeader {
+    display: flex;
+    min-width: 0;
+    height: 25px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 0 2px;
+}
+
+.name {
+    min-width: 0;
+    overflow: hidden;
+    color: #d9ffe8;
+    font: 700 14px 'Space Grotesk', sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cardActions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 5px;
+}
+
+.favorite,
+.close {
+    display: grid;
+    width: 22px;
+    height: 24px;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: 700 20px/1 'Space Grotesk', sans-serif;
+}
+
+.favorite {
+    color: #39ff88;
+}
+
+.favorite[aria-pressed='true'] {
+    color: #39ff88;
+}
+
+.close {
+    color: #8ebda0;
+    font-size: 19px;
+}
+
+.favorite:hover,
+.close:hover {
+    filter: brightness(1.35);
 }
 
 .character {
-    background-color: rgb(180, 0, 0);
-    border-radius: 0.5rem;
-    border: 1px solid rgb(200, 0, 0);
-    box-shadow: 2px 6px 10px 0px #0000006f;
-    height: 240px;
-    margin: 5px;
-    padding: 0px;
-    text-align: justify;
-    width: 210px;
+    position: relative;
+    display: block;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    margin: 0 1px;
+    border: 1px solid #39ff8855;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #18402d, #062015 70%);
 }
 
 .character img {
-    border-radius: 0.5rem;
-    height: 200px;
-    margin: 5px;
-    width: 200px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
 }
 
-.character h2 {
-    color: #e3e3e3;
-    font-size: 22px;
-    font-weight: 500;
-    height: 30px;
-    letter-spacing: -0.5px;
-    margin: 0px;
-    margin-left: 5px;
-    text-align: left;
-    text-shadow: 1px 3px 3px #0000005e;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.divContainer:hover .character img {
+    transform: scale(1.025);
 }
 
-.logo {
-    height: 53px;
-    width: 175px;
+.cardFooter {
+    display: flex;
+    min-height: 19px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 0 3px;
+    color: #80c99d;
+    font: 500 10px 'Space Grotesk', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.light {
-    box-shadow: 60px -20px 40px 15px #1f60cc;
-    width: 120px;
+@keyframes card-shine {
+    0%, 12% {
+        background-position: 160% 0;
+        opacity: 0;
+    }
+
+    28% {
+        opacity: 0.9;
+    }
+
+    48%, 100% {
+        background-position: -80% 0;
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .divContainer,
+    .character img,
+    .divContainer::after {
+        transition: none;
+        animation: none;
+    }
 }
