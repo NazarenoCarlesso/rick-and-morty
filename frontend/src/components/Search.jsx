@@ -1,36 +1,53 @@
-import { Montserrat, MontserratBold, PaperTriple, SearchBar, SearchIconWrapper, StyledInputBase } from './Custom'
-import SearchIcon from '@mui/icons-material/Search'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import SearchIcon from '@mui/icons-material/Search'
 
 export default function Search({ onSearch }) {
-    const [character, setCharacter] = useState('')
+    const [characterId, setCharacterId] = useState('')
     const navigate = useNavigate()
 
-    const handleInputChange = (event) => setCharacter(event.target.value)
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        if (!characterId) return
 
-    const handleKeyDown = async (event) => {
-        if (event.key === 'Enter') {
-            onSearch(character).then(valid => {
-                if (valid) navigate('/deck')
-            })
-        }
+        const added = await onSearch(characterId)
+        if (added) navigate('/deck')
     }
 
     return (
-        <PaperTriple>
-            <MontserratBold variant="h3" sx={{ wordSpacing: "5px" }} >
-                Rick & Morty API
-            </MontserratBold>
-            <Montserrat variant="h6" sx={{ margin: "15px 0px", paddingLeft: "10px", borderLeft: "solid 4px", fontSize: "1rem" }} >
-                Find your favorite rick and morty characters
-            </Montserrat>
-            <SearchBar value={character} onChange={handleInputChange} onKeyDown={handleKeyDown} sx={{ borderRadius: "1.5rem", backgroundColor: "transparent", border: "solid 2px" }} >
-                <SearchIconWrapper>
-                    <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-            </SearchBar>
-        </PaperTriple>
+        <section className="home-hero glass">
+            <div className="home-hero-art" aria-hidden="true">
+                <span className="home-orbit home-orbit-one" />
+                <span className="home-orbit home-orbit-two" />
+                <span className="home-star home-star-one" />
+                <span className="home-star home-star-two" />
+                <span className="home-star home-star-three" />
+                <span className="home-star home-star-four" />
+            </div>
+            <div className="home-hero-copy">
+                <p className="home-eyebrow">The multiverse, indexed</p>
+                <h1>
+                    Find every <span className="wm">Rick</span>,
+                    <br />
+                    every <span className="wm">Morty</span>.
+                </h1>
+                <form className="home-search" onSubmit={handleSubmit}>
+                    <label className="sr-only" htmlFor="character-search">Search characters by ID</label>
+                    <SearchIcon className="home-search-icon" aria-hidden="true" />
+                    <input
+                        id="character-search"
+                        type="number"
+                        min="1"
+                        inputMode="numeric"
+                        placeholder="Search characters..."
+                        value={characterId}
+                        onChange={(event) => setCharacterId(event.target.value)}
+                    />
+                    <button className="btn home-search-button" type="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
+        </section>
     )
 }
