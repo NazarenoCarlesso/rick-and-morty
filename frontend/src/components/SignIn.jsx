@@ -1,13 +1,13 @@
 import { Box, Button, FormControlLabel, Grid, Typography } from '@mui/material'
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { CheckboxCustom, NeonPaper, TextFieldCustom } from './Custom'
 import validate from '../utils/validation'
 
 export default function SignIn({ onLogin }) {
-    const [user, setUser] = React.useState({ username: '', password: '' })
-    const [errors, setErrors] = React.useState(validate(user))
+    const [user, setUser] = useState({ username: '', password: '' })
+    const [errors, setErrors] = useState(validate(user))
 
-    React.useEffect(() => { hintInsert() }, [])
+    useEffect(() => { hintInsert() }, [])
 
     const handleChange = (event) => {
         const { name, value } = event.target

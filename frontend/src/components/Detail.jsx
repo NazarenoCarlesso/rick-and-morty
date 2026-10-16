@@ -1,9 +1,9 @@
 import { Button, Grid } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router'
 import { ImgDetail, Montserrat, MontserratBold, NeonPaper } from './Custom'
 
-const BACK = process.env.REACT_APP_BACK
+const BACK = import.meta.env.VITE_BACK
 
 export default function Detail() {
     const { id } = useParams()

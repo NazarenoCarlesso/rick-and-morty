@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Card.module.css'
 import { addFav, deleteFav } from '../redux/actions'
@@ -44,7 +44,7 @@ export default function Card(props) {
                   <img src={props.image} alt='Character' />
                </Link>
             </div>
-            <img className={styles.logo} src='./img/card_logo.png' alt='Rick And Morty' />
+            <img className={styles.logo} src='/img/card_logo.png' alt='Rick And Morty' />
             <div className={styles.light}></div>
          </div>
       </div>

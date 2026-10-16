@@ -1,5 +1,4 @@
 import { Button, Grid } from '@mui/material'
-import React from 'react'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import StarIcon from '@mui/icons-material/Star'
 import { Montserrat, MontserratBold, PaperTriple, Space } from './Custom'

@@ -1,6 +1,5 @@
 import { Button, Grid } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { Montserrat, MontserratBold, PaperTriple } from './Custom'
 
 export default function Return() {

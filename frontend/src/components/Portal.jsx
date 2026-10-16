@@ -1,4 +1,3 @@
-import React from 'react'
 import { styled } from '@mui/material'
 
 const PortalContainer = styled('div')(({ theme }) => ({

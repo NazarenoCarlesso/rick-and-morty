@@ -1,10 +1,10 @@
 import { Montserrat, MontserratBold, PaperTriple, SearchBar, SearchIconWrapper, StyledInputBase } from './Custom'
 import SearchIcon from '@mui/icons-material/Search'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 export default function Search({ onSearch }) {
-    const [character, setCharacter] = React.useState('')
+    const [character, setCharacter] = useState('')
     const navigate = useNavigate()
 
     const handleInputChange = (event) => setCharacter(event.target.value)

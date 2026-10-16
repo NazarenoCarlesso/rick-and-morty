@@ -44,7 +44,7 @@ To setup the frontend first we need to install the dependencies.
 npm install
 ```
 
-4. It will open in a new window of our browser using the next command line
+4. Start the development server using the next command line
 
 ```
 npm start
@@ -52,13 +52,18 @@ npm start
 
 ### Environment
 
-There will be no cards, because our website is not connected with the API
+The Vite frontend uses the public Rick and Morty API by default. Copy
+`frontend/.env.example` to `frontend/.env` before starting the app:
 
-5. Create a new file .env inside frontend subdirectory with the variables
+```env
+VITE_BACK=https://rickandmortyapi.com
+```
 
-```
-REACT_APP_BACK=https://rickandmortyapi.com
-```
+This lets you run or deploy the frontend without the project's backend.
+
+To check the frontend with ESLint, run `npm run lint` from `frontend/`.
+VS Code can show lint warnings in the editor with the recommended ESLint
+extension.
 
 ### API
 
@@ -74,20 +79,22 @@ npm run dev
 
 ### Environment
 
-To run the API in our local machine, we should first declare the port
+To run the project's API locally, copy `backend/.env.example` to
+`backend/.env`. It sets the server port:
 
-8. Create a new file .env inside backend subdirectory with the variables
-
-Example: *(you can choose any port)*
-```
-PORT=3000 
+```env
+PORT=3000
 ```
 
 ### Finish
 
-To connect the frontend with the backend modify the environment variables.
+To use the project's backend instead of the public API, change
+`VITE_BACK` in `frontend/.env` to `http://localhost:3000` and start the
+backend with `npm run dev`. Restart the frontend after changing environment
+variables.
 
-You need to restart the server anytime environment variables are changed.
+Run `npm run build` in `frontend/` to create the static site in `frontend/dist/`.
+
 
 # Screenshots
 

@@ -1,8 +1,7 @@
 import { Button, Grid } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import StarIcon from '@mui/icons-material/Star'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { Montserrat, MontserratBold, PaperTriple } from './Custom'
 
 

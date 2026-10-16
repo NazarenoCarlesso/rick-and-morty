@@ -1,6 +1,5 @@
 import { AppBar, Box, Grid, Toolbar } from '@mui/material'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router'
 import { LogoNav, MontserratNav } from './Custom'
 
 export default function NavBar() {

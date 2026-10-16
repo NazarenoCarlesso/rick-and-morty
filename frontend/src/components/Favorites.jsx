@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { filterGender, filterReset, filterSpecie, filterStatus, orderCards } from '../redux/actions'
 import { Button, Grid, MenuItem } from '@mui/material'
@@ -10,7 +10,7 @@ export default function Favorites() {
     const dispatch = useDispatch()
     const myFavorites = useSelector(state => state.myFavorites)
 
-    const [filter, setFilter] = React.useState({
+    const [filter, setFilter] = useState({
         gender: 'All',
         specie: 'All',
         status: 'All',
@@ -25,8 +25,7 @@ export default function Favorites() {
         dispatch(orderCards(filter.order))
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    React.useEffect(() => { handeFilter() }, [filter])
+    useEffect(() => { handeFilter() }, [filter])
 
     const handleFilterGender = (event) => setFilter({ ...filter, gender: event.target.value })
     const handleFilterSpecie = (event) => setFilter({ ...filter, specie: event.target.value })

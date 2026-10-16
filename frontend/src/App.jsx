@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router'
 import { createTheme, ThemeProvider } from '@mui/material'
 import About from './components/About'
 import Detail from './components/Detail'
@@ -10,7 +10,7 @@ import SignIn from './components/SignIn'
 import Error from './components/Error'
 import Deck from './components/Deck'
 
-const BACK = process.env.REACT_APP_BACK
+const BACK = import.meta.env.VITE_BACK
 
 export default function App() {
     const [characters, setCharacters] = useState([])

@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material'
-import React from 'react'
 import { Space } from './Custom'
 import Design from './Design'
 import Return from './Return'

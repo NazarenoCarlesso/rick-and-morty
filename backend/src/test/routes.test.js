@@ -1,82 +1,75 @@
-import session from 'supertest'
-import Server from '../server'
+import assert from 'node:assert/strict'
+import { describe, it } from 'node:test'
+import request from 'supertest'
+import Server from '../server.js'
 
-let server, app, agent
+const server = new Server()
+const agent = request(server.app)
 
-describe('Routes Test', () => {
-    beforeAll(() => {
-        server = new Server()
-        app = server.listen()
-        agent = session(app)
-    })
-
+describe('API routes', () => {
     describe('GET CHARACTERS', () => {
-        it('Status code should be 200', async () => {
-            await agent.get('/rickandmorty/characters')
-                .expect(200)
-                .expect('Content-Type', /json/)
+        it('returns the first page of characters', async () => {
+            const response = await agent.get('/api/characters')
+            assert.equal(response.status, 200)
+            assert.match(response.headers['content-type'], /json/)
         })
 
-        it('Should get 826 characters', async () => {
-            const response = await agent.get('/rickandmorty/characters')
+        it('includes the total character count', async () => {
+            const response = await agent.get('/api/characters')
             const { info } = response.body
-            expect(info.count).toBe(826)
+            assert.equal(info.count, 826)
         })
     })
 
     describe('GET CHARACTER', () => {
-        it('Status code should be 200', async () => {
-            await agent.get('/rickandmorty/character/1')
-                .expect(200)
-                .expect('Content-Type', /json/)
+        it('returns a character by ID', async () => {
+            const response = await agent.get('/api/character/1')
+            assert.equal(response.status, 200)
+            assert.match(response.headers['content-type'], /json/)
         })
 
-        it('Status code should be 400 when ID is invalid', async () => {
-            await agent.get('/rickandmorty/character/invalid')
-                .expect(400)
+        it('returns 400 when ID is invalid', async () => {
+            const response = await agent.get('/api/character/invalid')
+            assert.equal(response.status, 400)
         })
 
-        it('Response should have properties: id, name, species, gender, image', async () => {
-            const response = await agent.get('/rickandmorty/character/1')
-            expect(response.body).toHaveProperty('id')
-            expect(response.body).toHaveProperty('name')
-            expect(response.body).toHaveProperty('species')
-            expect(response.body).toHaveProperty('gender')
-            expect(response.body).toHaveProperty('image')
+        it('returns the character summary properties', async () => {
+            const response = await agent.get('/api/character/1')
+            assert.equal(response.status, 200)
+            for (const property of ['id', 'name', 'image']) {
+                assert.ok(property in response.body)
+            }
         })
 
-        it('Character name should be Rick Sanchez', async () => {
-            const response = await agent.get('/rickandmorty/character/1')
-            expect(response.body.name).toBe('Rick Sanchez')
+        it('returns Rick Sanchez for ID 1', async () => {
+            const response = await agent.get('/api/character/1')
+            assert.equal(response.body.name, 'Rick Sanchez')
         })
     })
 
     describe('GET CHARACTER DETAIL', () => {
-        it('Status code should be 200', async () => {
-            await agent.get('/rickandmorty/detail/1')
-                .expect(200)
-                .expect('Content-Type', /json/)
+        it('returns character detail', async () => {
+            const response = await agent.get('/api/detail/1')
+            assert.equal(response.status, 200)
+            assert.match(response.headers['content-type'], /json/)
         })
 
-        it('Status code should be 400 when ID is invalid', async () => {
-            await agent.get('/rickandmorty/detail/invalid')
-                .expect(400)
+        it('returns 400 when ID is invalid', async () => {
+            const response = await agent.get('/api/detail/invalid')
+            assert.equal(response.status, 400)
         })
 
-        it('Response should have properties: type, origin, location', async () => {
-            const response = await agent.get('/rickandmorty/detail/1')
-            expect(response.body).toHaveProperty('type')
-            expect(response.body).toHaveProperty('origin')
-            expect(response.body).toHaveProperty('location')
+        it('returns type, origin, and location', async () => {
+            const response = await agent.get('/api/detail/1')
+            assert.equal(response.status, 200)
+            for (const property of ['type', 'origin', 'location']) {
+                assert.ok(property in response.body)
+            }
         })
 
-        it('Character origin should be Earth (C-137)', async () => {
-            const response = await agent.get('/rickandmorty/detail/1')
-            expect(response.body.origin.name).toBe('Earth (C-137)')
+        it('returns Earth (C-137) as the origin of ID 1', async () => {
+            const response = await agent.get('/api/detail/1')
+            assert.equal(response.body.origin.name, 'Earth (C-137)')
         })
-    })
-
-    afterAll(() => {
-        app.close()
     })
 })

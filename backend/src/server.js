@@ -1,11 +1,10 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import cors from 'cors'
 import router from './routes/router.js'
 
 import dotenv from 'dotenv'
 dotenv.config()
-const { PORT } = process.env
+const PORT = process.env.PORT || 3000
 
 class Server {
     constructor() {
@@ -17,8 +16,8 @@ class Server {
     }
 
     middlewares() {
-        this.app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }))
-        this.app.use(bodyParser.json({ limit: "50mb" }))
+        this.app.use(express.urlencoded({ extended: true, limit: "50mb" }))
+        this.app.use(express.json({ limit: "50mb" }))
         this.app.use(cors())
     }
 
