@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes, useNavigate } from 'react-router'
+import { Route, Routes, useLocation, useNavigate } from 'react-router'
 import { createTheme, ThemeProvider } from '@mui/material'
+import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react'
 import About from './components/About'
 import Detail from './components/Detail'
 import Favorites from './components/Favorites'
@@ -14,8 +15,10 @@ const BACK = import.meta.env.VITE_BACK
 
 export default function App() {
     const [characters, setCharacters] = useState([])
-    const [access, setAccess] = useState(false)
     const navigate = useNavigate()
+    const location = useLocation()
+    const { pathname } = location
+    const shouldReduceMotion = useReducedMotion()
 
     useEffect(() => {
         const initialDeck = [127, 156, 163, 372, 472, 473, 580, 618, 619, 624, 625, 667, 809]
@@ -24,7 +27,6 @@ export default function App() {
     }, [])
 
     const onLogin = () => {
-        setAccess(true)
         navigate('/home')
     }
 
@@ -47,10 +49,11 @@ export default function App() {
         setCharacters((oldChars) => oldChars.filter(c => c.id !== character))
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { !access && navigate('/') }, [access])
-
-    const nav = access ? <NavBar /> : <></>
+    const nav = pathname === '/' ? null : <NavBar />
+    const shellClass = pathname === '/' ? 'app-shell' : 'app-shell r'
+    const backgroundClass = pathname.startsWith('/detail/')
+        ? 'detail-background'
+        : ''
 
     const theme = createTheme({
         palette: {
@@ -69,18 +72,33 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme} >
-            <div className="app-shell">
-                {nav}
-                <Routes>
-                    <Route path='/' element={<SignIn onLogin={onLogin} />} />
-                    <Route path='/home' element={<Home onSearch={onSearch} />} />
-                    <Route path='/deck' element={<Deck onSearch={onSearch} characters={characters} close={onClose} />} />
-                    <Route path='/favorites' element={<Favorites />} />
-                    <Route path='/about' element={<About />} />
-                    <Route path='/detail/:id' element={<Detail />} />
-                    <Route path='/*' element={<Error />} />
-                </Routes>
-            </div>
+            <MotionConfig reducedMotion="user">
+                <div className={`${shellClass}${backgroundClass ? ` ${backgroundClass}` : ''}`}>
+                    {pathname === '/home' && (
+                        <div className="portal home-background-portal" aria-hidden="true" />
+                    )}
+                    {nav}
+                    <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                            key={location.pathname}
+                            initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
+                            transition={{ duration: shouldReduceMotion ? 0 : 0.2, ease: 'easeOut' }}
+                        >
+                            <Routes location={location}>
+                                <Route path='/' element={<SignIn onLogin={onLogin} />} />
+                                <Route path='/home' element={<Home onSearch={onSearch} />} />
+                                <Route path='/deck' element={<Deck onSearch={onSearch} characters={characters} close={onClose} />} />
+                                <Route path='/favorites' element={<Favorites />} />
+                                <Route path='/about' element={<About />} />
+                                <Route path='/detail/:id' element={<Detail />} />
+                                <Route path='/*' element={<Error />} />
+                            </Routes>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </MotionConfig>
         </ThemeProvider>
     )
 }
